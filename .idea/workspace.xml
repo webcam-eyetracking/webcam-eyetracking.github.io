@@ -1,0 +1,1046 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c968f9e7-65de-4f2d-a9bf-6f79f9bc1b52" name="Default" comment="share link fixed">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/assets/js/medusa.js" afterPath="$PROJECT_DIR$/assets/js/medusa.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/unused.js" afterPath="$PROJECT_DIR$/assets/js/unused.js" />
+      <change beforePath="$PROJECT_DIR$/html/elements.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/html/generic.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/html/pursuit.html" afterPath="" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <ignored path=".idea/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <splitter split-orientation="horizontal" split-proportion="0.49878347">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="medusa.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/assets/js/medusa.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="542">
+                  <caret line="2307" column="5" lean-forward="true" selection-start-line="2307" selection-start-column="5" selection-end-line="2307" selection-end-column="5" />
+                  <folding>
+                    <marker date="1517799292754" expanded="true" signature="43224:43261" ph="..." />
+                    <marker date="1517799292754" expanded="true" signature="45508:45518" ph="..." />
+                    <marker date="1517799292754" expanded="true" signature="58498:58571" ph="..." />
+                    <marker date="1517799292754" expanded="true" signature="58746:58832" ph="..." />
+                    <marker date="1517799292754" expanded="true" signature="59092:59165" ph="..." />
+                    <marker date="1517799292754" expanded="true" signature="59198:59284" ph="..." />
+                    <marker date="1517799292754" expanded="true" signature="60081:60136" ph="..." />
+                    <marker date="1517799292754" expanded="true" signature="85432:85456" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="113">
+                  <caret line="53" column="56" lean-forward="false" selection-start-line="53" selection-start-column="56" selection-end-line="53" selection-end-column="56" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="medusa.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/assets/css/medusa.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="391">
+                  <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="2" selection-end-line="26" selection-end-column="3" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+          <file leaf-file-name="medusa.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/assets/js/medusa.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="491">
+                  <caret line="1623" column="28" lean-forward="false" selection-start-line="1621" selection-start-column="71" selection-end-line="1623" selection-end-column="28" />
+                  <folding>
+                    <marker date="1517799292754" expanded="true" signature="43224:43261" ph="..." />
+                    <marker date="1517799292754" expanded="true" signature="45508:45518" ph="..." />
+                    <marker date="1517799292754" expanded="true" signature="58498:58571" ph="..." />
+                    <marker date="1517799292754" expanded="true" signature="58746:58832" ph="..." />
+                    <marker date="1517799292754" expanded="true" signature="59092:59165" ph="..." />
+                    <marker date="1517799292754" expanded="true" signature="59198:59284" ph="..." />
+                    <marker date="1517799292754" expanded="true" signature="60081:60136" ph="..." />
+                    <marker date="1517799292754" expanded="true" signature="85432:85456" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>show_video</find>
+      <find>draw_heat</find>
+      <find>load_webgazer</find>
+      <find>font-weight</find>
+      <find>bye bye</find>
+      <find>moving_dot</find>
+      <find>draw_heatmap</find>
+      <find>loop_bonus_round</find>
+      <find>current_task</find>
+      <find>create_web</find>
+      <find>create_bonus</find>
+      <find>next</find>
+      <find>create_survey</find>
+      <find>massvis</find>
+      <find>reset</find>
+      <find>sharer</find>
+      <find>facebook</find>
+      <find>prediction</find>
+      <find>bonus_round</find>
+      <find>khai</find>
+      <find>pursuing</find>
+      <find>survey</find>
+      <find>app_id</find>
+      <find>done</find>
+      <find>khaiquangnguyen</find>
+      <find>twitter</find>
+      <find>no webcam found</find>
+      <find>webcam-info</find>
+      <find>request</find>
+      <find>share</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$USER_HOME$/Desktop/code/js/tolcam.js" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/test_page.html" />
+        <option value="$PROJECT_DIR$/experiment.html" />
+        <option value="$PROJECT_DIR$/Demo/script.js" />
+        <option value="$PROJECT_DIR$/medusa.html" />
+        <option value="$PROJECT_DIR$/Demo/medusa.html" />
+        <option value="$USER_HOME$/Desktop/New folder/generic.html" />
+        <option value="$PROJECT_DIR$/Demo/css/index.css" />
+        <option value="$PROJECT_DIR$/Demo/js/medusa.js" />
+        <option value="$PROJECT_DIR$/Demo/css/main.css" />
+        <option value="$PROJECT_DIR$/Demo/generic2.html" />
+        <option value="$PROJECT_DIR$/Demo/generic.html" />
+        <option value="$PROJECT_DIR$/css/medusa.css" />
+        <option value="$PROJECT_DIR$/massvis/assets/css/main.css" />
+        <option value="$PROJECT_DIR$/massvis/assets/css/custom.css" />
+        <option value="$PROJECT_DIR$/massvis/assets/js/custom.js" />
+        <option value="$PROJECT_DIR$/massvis/medusa.html" />
+        <option value="$PROJECT_DIR$/js/gaze_config.js" />
+        <option value="$PROJECT_DIR$/massvis/assets/js/gaze_config.js" />
+        <option value="$PROJECT_DIR$/massvis/assets/js/settings.js" />
+        <option value="$PROJECT_DIR$/massvis/index.html" />
+        <option value="$PROJECT_DIR$/massvis/assets/css/medusa.css" />
+        <option value="$PROJECT_DIR$/massvis/simple.html" />
+        <option value="$PROJECT_DIR$/massvis/assets/js/medusa.js" />
+        <option value="$PROJECT_DIR$/massvis/pursuit.html" />
+        <option value="$PROJECT_DIR$/pursuit.html" />
+        <option value="$PROJECT_DIR$/simple.html" />
+        <option value="$USER_HOME$/Desktop/CustomFileInputs/js/custom-file-input.js" />
+        <option value="$PROJECT_DIR$/html/pursuit.html" />
+        <option value="$PROJECT_DIR$/js/medusa.js" />
+        <option value="$PROJECT_DIR$/assets/images/logo.svg" />
+        <option value="$PROJECT_DIR$/assets/js/heatmap.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/assets/css/main.css" />
+        <option value="$PROJECT_DIR$/html/simple.html" />
+        <option value="$PROJECT_DIR$/assets/css/medusa.css" />
+        <option value="$PROJECT_DIR$/assets/js/medusa.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/analysis tool/getCSV/node_modules" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1932" />
+    <option name="height" value="1048" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="webcam-eyetracking" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webcam-eyetracking" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webcam-eyetracking" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webcam-eyetracking" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webcam-eyetracking" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webcam-eyetracking" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Khoi Le\WebstormProjects\Medusa\massvis\assets\js" />
+      <recent name="C:\Users\Khoi Le\WebstormProjects\Medusa\massvis" />
+      <recent name="C:\Users\Khoi Le\WebstormProjects\Medusa\Demo" />
+      <recent name="C:\Users\Khoi Le\WebstormProjects\Medusa\Demo\assets\js" />
+      <recent name="C:\Users\Khoi Le\WebstormProjects\Medusa" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Khoi Le\WebstormProjects\Medusa\assets\images\guide" />
+      <recent name="C:\Users\Khoi Le\WebstormProjects\Medusa\assets\images" />
+      <recent name="C:\Users\Khoi Le\WebstormProjects\Medusa" />
+      <recent name="C:\Users\Khoi Le\WebstormProjects\Medusa\docs" />
+      <recent name="C:\Users\Khoi Le\WebstormProjects\Medusa\html" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Khoi Le\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c968f9e7-65de-4f2d-a9bf-6f79f9bc1b52" name="Default" comment="" />
+      <created>1496867551702</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1496867551702</updated>
+      <workItem from="1496867552870" duration="1857000" />
+      <workItem from="1496931149170" duration="7532000" />
+      <workItem from="1496948703356" duration="180000" />
+      <workItem from="1496948906888" duration="24327000" />
+      <workItem from="1497275539453" duration="8522000" />
+      <workItem from="1497293719257" duration="2510000" />
+      <workItem from="1497296429455" duration="8474000" />
+      <workItem from="1497449914699" duration="15116000" />
+      <workItem from="1497469213749" duration="19736000" />
+      <workItem from="1497642229387" duration="599000" />
+      <workItem from="1497898442936" duration="6696000" />
+      <workItem from="1497964842685" duration="13000" />
+      <workItem from="1497968924530" duration="13900000" />
+      <workItem from="1497993000530" duration="850000" />
+      <workItem from="1498051779687" duration="7513000" />
+      <workItem from="1498066410392" duration="11700000" />
+      <workItem from="1498140443935" duration="9878000" />
+      <workItem from="1498152939881" duration="65000" />
+      <workItem from="1498153049115" duration="11200000" />
+      <workItem from="1498164602965" duration="1042000" />
+      <workItem from="1498226287138" duration="1380000" />
+      <workItem from="1498227946248" duration="1648000" />
+      <workItem from="1498229759515" duration="3122000" />
+      <workItem from="1498232898331" duration="236000" />
+      <workItem from="1498233149038" duration="1483000" />
+      <workItem from="1498502408383" duration="162000" />
+      <workItem from="1498502966746" duration="802000" />
+      <workItem from="1498574523525" duration="3722000" />
+      <workItem from="1498656297255" duration="5539000" />
+      <workItem from="1498743928018" duration="634000" />
+      <workItem from="1498764056383" duration="13751000" />
+      <workItem from="1499092342863" duration="7694000" />
+      <workItem from="1499110834532" duration="90000" />
+      <workItem from="1499111048288" duration="2485000" />
+      <workItem from="1499259707414" duration="4429000" />
+      <workItem from="1499278695246" duration="615000" />
+      <workItem from="1499369756751" duration="17000" />
+      <workItem from="1499369959022" duration="2246000" />
+      <workItem from="1499434684784" duration="3698000" />
+      <workItem from="1499696307846" duration="3942000" />
+      <workItem from="1499712333136" duration="608000" />
+      <workItem from="1500476608705" duration="3705000" />
+      <workItem from="1500484522528" duration="6561000" />
+      <workItem from="1500564695894" duration="599000" />
+      <workItem from="1500989771900" duration="5260000" />
+      <workItem from="1501083621716" duration="7545000" />
+      <workItem from="1501180158277" duration="9013000" />
+      <workItem from="1501254955457" duration="17000" />
+      <workItem from="1501508662450" duration="1135000" />
+      <workItem from="1501528614550" duration="20720000" />
+      <workItem from="1501770143969" duration="432000" />
+      <workItem from="1501774565219" duration="59000" />
+      <workItem from="1501792098045" duration="2856000" />
+      <workItem from="1502930727887" duration="936000" />
+      <workItem from="1506194039890" duration="23000" />
+      <workItem from="1506366338487" duration="14000" />
+      <workItem from="1507056980123" duration="3382000" />
+      <workItem from="1517793342851" duration="2838000" />
+    </task>
+    <task id="LOCAL-00049" summary="styling upload button">
+      <created>1498071578261</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1498071578261</updated>
+    </task>
+    <task id="LOCAL-00050" summary="styling upload button">
+      <created>1498071869005</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1498071869005</updated>
+    </task>
+    <task id="LOCAL-00051" summary="styling upload button">
+      <created>1498072404142</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1498072404142</updated>
+    </task>
+    <task id="LOCAL-00052" summary="styling upload button">
+      <created>1498072868554</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1498072868554</updated>
+    </task>
+    <task id="LOCAL-00053" summary="styling upload button">
+      <created>1498075498720</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1498075498720</updated>
+    </task>
+    <task id="LOCAL-00054" summary="styling upload button">
+      <created>1498076324225</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1498076324225</updated>
+    </task>
+    <task id="LOCAL-00055" summary="massiv added (still has bugs)">
+      <created>1498141895515</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1498141895516</updated>
+    </task>
+    <task id="LOCAL-00056" summary="massiv added (still has bugs)">
+      <created>1498142140321</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1498142140321</updated>
+    </task>
+    <task id="LOCAL-00057" summary="massiv added (still has bugs)">
+      <created>1498147923676</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1498147923676</updated>
+    </task>
+    <task id="LOCAL-00058" summary="massiv added (still has bugs)">
+      <created>1498152962951</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1498152962953</updated>
+    </task>
+    <task id="LOCAL-00059" summary="survey đẹp">
+      <created>1498159763640</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1498159763642</updated>
+    </task>
+    <task id="LOCAL-00060" summary="survey đẹp">
+      <created>1498164310992</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1498164310992</updated>
+    </task>
+    <task id="LOCAL-00061" summary="survey đẹp">
+      <created>1498229585616</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1498229585617</updated>
+    </task>
+    <task id="LOCAL-00062" summary="done?">
+      <created>1498232229882</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1498232229883</updated>
+    </task>
+    <task id="LOCAL-00063" summary="done?">
+      <created>1498232689271</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1498232689271</updated>
+    </task>
+    <task id="LOCAL-00064" summary="done?">
+      <created>1498576628317</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1498576628325</updated>
+    </task>
+    <task id="LOCAL-00065" summary="check user webcam">
+      <created>1498657142987</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1498657142988</updated>
+    </task>
+    <task id="LOCAL-00066" summary="autofill option added">
+      <created>1498662079120</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1498662079120</updated>
+    </task>
+    <task id="LOCAL-00067" summary="heatmap testing">
+      <created>1498766324961</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1498766324963</updated>
+    </task>
+    <task id="LOCAL-00068" summary="heatmap testing">
+      <created>1498833328226</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1498833328226</updated>
+    </task>
+    <task id="LOCAL-00069" summary="heatmap testing">
+      <created>1499112535048</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1499112535049</updated>
+    </task>
+    <task id="LOCAL-00070" summary="heatmap testing">
+      <created>1499112925532</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1499112925532</updated>
+    </task>
+    <task id="LOCAL-00071" summary="heatmap testing">
+      <created>1499278708626</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1499278708634</updated>
+    </task>
+    <task id="LOCAL-00072" summary="heatmap testing">
+      <created>1499434883402</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1499434883403</updated>
+    </task>
+    <task id="LOCAL-00073" summary="heatmap testing">
+      <created>1499438032773</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1499438032773</updated>
+    </task>
+    <task id="LOCAL-00074" summary="heatmap testing">
+      <created>1499712385439</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1499712385444</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Fixed answer not showing up for bonus round">
+      <created>1500478433577</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1500478433578</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Clearer instruction, increased font weight">
+      <created>1500485252654</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1500485252654</updated>
+    </task>
+    <task id="LOCAL-00077" summary="added Share button">
+      <created>1500498061110</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1500498061110</updated>
+    </task>
+    <task id="LOCAL-00078" summary="done">
+      <created>1500996195781</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1500996195782</updated>
+    </task>
+    <task id="LOCAL-00079" summary="done">
+      <created>1501008528263</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1501008528263</updated>
+    </task>
+    <task id="LOCAL-00080" summary="More vis added">
+      <created>1501009640850</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1501009640850</updated>
+    </task>
+    <task id="LOCAL-00081" summary="More vis added">
+      <created>1501010165933</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1501010165933</updated>
+    </task>
+    <task id="LOCAL-00082" summary="done">
+      <created>1501099704288</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1501099704289</updated>
+    </task>
+    <task id="LOCAL-00083" summary="More vis added">
+      <created>1501180333140</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1501180333142</updated>
+    </task>
+    <task id="LOCAL-00084" summary="More vis added">
+      <created>1501186851270</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1501186851270</updated>
+    </task>
+    <task id="LOCAL-00085" summary="wut">
+      <created>1501512081415</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1501512081415</updated>
+    </task>
+    <task id="LOCAL-00086" summary="DONE!">
+      <created>1501616051090</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1501616051092</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Done?">
+      <created>1501683940203</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1501683940203</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Done">
+      <created>1501708622725</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1501708622725</updated>
+    </task>
+    <task id="LOCAL-00089" summary="More vis added">
+      <created>1501774612732</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1501774612732</updated>
+    </task>
+    <task id="LOCAL-00090" summary="More vis added">
+      <created>1501793082957</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1501793082958</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Initial commit">
+      <created>1501793569404</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1501793569405</updated>
+    </task>
+    <task id="LOCAL-00092" summary="done">
+      <created>1501794351496</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1501794351497</updated>
+    </task>
+    <task id="LOCAL-00093" summary="done?">
+      <created>1502930888904</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1502930888905</updated>
+    </task>
+    <task id="LOCAL-00094" summary="fix webcam bug">
+      <created>1507058471794</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1507058471794</updated>
+    </task>
+    <task id="LOCAL-00095" summary="More vis added">
+      <created>1507059678605</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1507059678605</updated>
+    </task>
+    <task id="LOCAL-00096" summary="More vis added">
+      <created>1507060040238</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1507060040238</updated>
+    </task>
+    <task id="LOCAL-00097" summary="share link fixed">
+      <created>1517799083105</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1517799083106</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="280111000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14166667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.49814913" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0031813362" sideWeight="0.5484375" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0031813362" sideWeight="0.4515625" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24926192" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34088334" sideWeight="0.4769963" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6500566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.032842584" sideWeight="0.51891315" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.032842584" sideWeight="0.48108685" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19365798" sideWeight="0.49813533" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16181915" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6500566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24960339" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="changed color scheme" />
+    <MESSAGE value="Merge branch 'master' of https://gitlab.bucknell.edu/bucknell-hci/webcam-eyetracking&#10;&#10;# Conflicts:&#10;#&#9;js/medusa.js" />
+    <MESSAGE value="Survey looks less horrible now" />
+    <MESSAGE value="added separate website" />
+    <MESSAGE value="Added pauses between sections" />
+    <MESSAGE value="Refactor" />
+    <MESSAGE value="styling upload button" />
+    <MESSAGE value="massiv added (still has bugs)" />
+    <MESSAGE value="survey đẹp" />
+    <MESSAGE value="check user webcam" />
+    <MESSAGE value="autofill option added" />
+    <MESSAGE value="heatmap testing" />
+    <MESSAGE value="Fixed answer not showing up for bonus round" />
+    <MESSAGE value="Clearer instruction, increased font weight" />
+    <MESSAGE value="added Share button" />
+    <MESSAGE value="wut" />
+    <MESSAGE value="DONE!" />
+    <MESSAGE value="Done?" />
+    <MESSAGE value="Done" />
+    <MESSAGE value="Initial commit" />
+    <MESSAGE value="done" />
+    <MESSAGE value="done?" />
+    <MESSAGE value="fix webcam bug" />
+    <MESSAGE value="More vis added" />
+    <MESSAGE value="share link fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="share link fixed" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="8" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/README.md" />
+    <entry file="file://$PROJECT_DIR$/Demo/script.js" />
+    <entry file="file://$PROJECT_DIR$/Demo/index.css" />
+    <entry file="file://$PROJECT_DIR$/Demo/medusa.html" />
+    <entry file="file://$PROJECT_DIR$/Demo/README.txt" />
+    <entry file="file://$PROJECT_DIR$/Demo/js/ie/html5shiv.js" />
+    <entry file="file://$PROJECT_DIR$/Demo/assets/js/jquery-3.2.1.slim.min.js" />
+    <entry file="file://$PROJECT_DIR$/Demo/js/jquery.mobile-1.4.2.min.js" />
+    <entry file="file://$PROJECT_DIR$/Demo/js/gaze_config.js" />
+    <entry file="file://$PROJECT_DIR$/Demo/js/jquery-1.12.3.min.js" />
+    <entry file="file://$PROJECT_DIR$/Demo/css/index.css" />
+    <entry file="file://$PROJECT_DIR$/Demo/generic.html" />
+    <entry file="file://$PROJECT_DIR$/Demo/css/main.css" />
+    <entry file="file://$PROJECT_DIR$/Demo/generic2.html" />
+    <entry file="file://$PROJECT_DIR$/Demo/js/medusa.js" />
+    <entry file="file://$PROJECT_DIR$/Demo/index.html" />
+    <entry file="file://$PROJECT_DIR$/Demo/elements.html" />
+    <entry file="file://$USER_HOME$/Desktop/code/index.html" />
+    <entry file="file://$PROJECT_DIR$/js/webgazer_original.js" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.204/tolcam.js" />
+    <entry file="file://$PROJECT_DIR$/massvis/css/kube.css" />
+    <entry file="file://$PROJECT_DIR$/massvis/css/custom.css" />
+    <entry file="file://$PROJECT_DIR$/massvis/assets/css/custom.css" />
+    <entry file="file://$PROJECT_DIR$/html/elements.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="149" column="77" lean-forward="false" selection-start-line="149" selection-start-column="71" selection-end-line="149" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/massvis/assets/js/custom.js" />
+    <entry file="file://$PROJECT_DIR$/assets/js/jquery-1.12.3.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/massvis/medusa.html" />
+    <entry file="file://$PROJECT_DIR$/js/webgazer.js" />
+    <entry file="file://$PROJECT_DIR$/js/settings.js" />
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="17" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.953/component.css" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.272/demo.css" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa0.910/normalize.css" />
+    <entry file="file://$USER_HOME$/Desktop/CustomFileInputs/css/component.css" />
+    <entry file="file://$USER_HOME$/Desktop/CustomFileInputs/js/custom-file-input.js" />
+    <entry file="file://$USER_HOME$/Desktop/CustomFileInputs/index.html" />
+    <entry file="file://$PROJECT_DIR$/html/pursuit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="84" column="13" lean-forward="true" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/medusa.js" />
+    <entry file="file://$PROJECT_DIR$/assets/images/logo.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-358">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/pic01.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/generic.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/vis/visMost54.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/code/js/tolcam.js" />
+    <entry file="file://$PROJECT_DIR$/assets/js/settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/webgazer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="3290" column="3288" lean-forward="false" selection-start-line="3290" selection-start-column="3284" selection-end-line="3290" selection-end-column="3288" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/heatmap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="103" column="8" lean-forward="false" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29342">
+          <caret line="1726" column="27" lean-forward="false" selection-start-line="1726" selection-start-column="27" selection-end-line="1726" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/simple.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#2694#2700#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/medusa.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="2" selection-end-line="26" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="53" column="56" lean-forward="false" selection-start-line="53" selection-start-column="56" selection-end-line="53" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/medusa.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="2307" column="5" lean-forward="true" selection-start-line="2307" selection-start-column="5" selection-end-line="2307" selection-end-column="5" />
+          <folding>
+            <marker date="1517799292754" expanded="true" signature="43224:43261" ph="..." />
+            <marker date="1517799292754" expanded="true" signature="45508:45518" ph="..." />
+            <marker date="1517799292754" expanded="true" signature="58498:58571" ph="..." />
+            <marker date="1517799292754" expanded="true" signature="58746:58832" ph="..." />
+            <marker date="1517799292754" expanded="true" signature="59092:59165" ph="..." />
+            <marker date="1517799292754" expanded="true" signature="59198:59284" ph="..." />
+            <marker date="1517799292754" expanded="true" signature="60081:60136" ph="..." />
+            <marker date="1517799292754" expanded="true" signature="85432:85456" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

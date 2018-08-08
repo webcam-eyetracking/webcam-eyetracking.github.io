@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,900");
+
+:root {
+  --font-color: #585858;
+  --submit-color: #585858;
+  --submit-color-darker: #f2849e;
+  --bg-color: #f5f5f5;
+}
+
+html,
+body {
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+  color: var(--font-color);
+  background-color: var(--bg-color);
+  font-size:16px;
+  line-height: 28px;
+}
+
+#main {
+  max-width: 50em;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 3em auto;
+}
+
+.overlay-div {
+  position: fixed;
+  margin: 3em auto;
+  max-width: 50em;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Link Styles */
+
+a:not(.form__button):link { 
+  color: rgb(128, 128, 128, 0.9);
+}
+
+a:not(.form__button):hover {
+  color: rgba(0, 0, 128, 0.4);
+}
+
+/* Form Styles */
+
+.form__header {
+  padding-bottom: 30px;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed rgba(54, 57, 66, 0.25);
+}
+
+.form__title {
+  font-size: 2em;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.form__main {
+  font-size: 16px;
+  line-height: 160%;
+  text-align: justify;
+}
+
+.form__instruction {
+  font-size: 22px;
+}
+
+.form__options {
+  border: none;
+  padding: 0;
+}
+
+.form__question {
+  font-size: 25px;
+}
+
+.form__answer {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 47%;
+  margin: 0 1% 0 0;
+  font-size: 22px;
+  text-align: left;
+}
+
+.form__label {
+  font-size: 0.8em;
+  border: 1px solid rgba(88, 88, 88, 0.25);
+  box-sizing: border-box;
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.5s ease-in-out;
+}
+
+.form__label:hover,
+label:focus,
+label:active {
+  border: 1px solid rgba(88, 88, 88, 0.75);
+}
+
+.form__button {
+  height: 3.5em;
+  border: none;
+  color: white;
+  background-color: var(--submit-color);
+  text-transform: uppercase;
+  font-family: "Source Sans Pro", sans-serif;
+  border-radius: 4px;
+  font-weight: 900;
+  cursor: pointer;
+  margin: 30px 30px 0 0;
+  transition: all 0.25s ease-in-out;
+  font-size: 0.8em;
+  letter-spacing: 0.35em;
+  line-height: 3.45em;
+  overflow: hidden;
+  padding: 0 1.25em 0 1.6em;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.form__button:hover,
+.form__button:focus {
+  background-color: var(--submit-color-darker);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+  outline: none;
+}
+
+.information {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0.5em 0 0 0;
+  font-size: 30px;
+  text-align: left;
+  font-weight: 400;
+}
+
+#survey_info{
+  font-size: 30px;
+}
+
+/* Input style */
+
+.file__button {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.file__button + label {
+  height: 3.5em;
+  border: none;
+  color: white;
+  background-color: var(--submit-color);
+  text-transform: uppercase;
+  font-family: "Source Sans Pro", sans-serif;
+  border-radius: 4px;
+  font-weight: 900;
+  cursor: pointer;
+  margin: 30px 30px 0 0;
+  transition: all 0.25s ease-in-out;
+  font-size: 0.8em;
+  letter-spacing: 0.35em;
+  line-height: 3.45em;
+  overflow: hidden;
+  padding: 1em 1.25em 1.2em 1.6em;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file__button:focus + label,
+.file__button + label:hover {
+  background-color: var(--submit-color-darker);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+  outline: none;
+}
+
+.file__button + label svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: white;
+  margin-top: -0.25em;
+  /* 4px */
+  margin-right: 1em;
+  /* 4px */
+}
+
+input[type="radio"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+input[type="radio"]:active ~ label {
+  opacity: 1;
+}
+
+input[type="radio"]:checked ~ label {
+  opacity: 1;
+  border: 1px solid var(--font-color);
+}
+
+select {
+  border: 1px solid rgba(88, 88, 88, 0.25);
+  box-sizing: border-box;
+  width: 100%;
+  display: block;
+  padding: 10px;
+  opacity: 0.5;
+  transition: all 0.5s ease-in-out;
+  background: transparent;
+  color: var(--font-color);
+  cursor: pointer;
+}
+
+select:hover,
+select:focus {
+  opacity: 1;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+  outline: none;
+}
+
+a.form__button {
+  display: inline-block;
+  vertical-align: top;
+}
