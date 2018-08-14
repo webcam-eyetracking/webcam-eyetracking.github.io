@@ -31,7 +31,7 @@ The structure of the project, as the folders' names suggest, are quite self-expl
 
 ### How to Run *(Development Stage)*
 
-The Node.js package `http-server` is already installed in this repository, and lets developers see their (currently, likely bug-laden) code in action without disturbing the [public-facing repository](https://github.com/bucknell-hci/bucknell-hci.github.io) and [production-ready demo](https://bucknell-hci.github.io/).
+The Node.js package `http-server` is already installed in this repository, and lets developers see their (currently, likely bug-laden) code in action without disturbing the [public-facing repository](https://github.com/webcam-eyetracking/webcam-eyetracking.github.io) and [production-ready demo](https://webcam-eyetracking.github.io/).
 
 1. Simply `cd` into the directory containing index.html and run the following command: `http-server -c-1`.
 2. This spins up a Node.js httpd which serves the files in your directory as static files accessible from `http://localhost:8080`.
