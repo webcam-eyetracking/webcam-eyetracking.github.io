@@ -159,7 +159,7 @@ var pursuit_paradigm_settings = {
       ty: 0.8
     }
   ],
-  num_trials: 12,
+  num_trials: 14,
   dot_show_time: 3500,
   fixation_rest_time: 1500
 };

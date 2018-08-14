@@ -107,7 +107,7 @@ label:active {
   border: 1px solid rgba(88, 88, 88, 0.75);
 }
 
-.form__button {
+/*.form__button {
   height: 3.5em;
   border: none;
   color: white;
@@ -122,6 +122,29 @@ label:active {
   font-size: 0.8em;
   letter-spacing: 0.35em;
   line-height: 3.45em;
+  overflow: hidden;
+  padding: 0 1.25em 0 1.6em;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}*/
+
+.form__button {
+  height: 3em;
+  border: none;
+  color: white;
+  background-color: var(--submit-color);
+  text-transform: uppercase;
+  font-family: "Source Sans Pro", sans-serif;
+  border-radius: 4px;
+  font-weight: 900;
+  cursor: pointer;
+  margin: 10px 10px 0 0;
+  transition: all 0.25s ease-in-out;
+  font-size: 0.7em;
+  letter-spacing: 0.35em;
+  line-height: 2.85em;
   overflow: hidden;
   padding: 0 1.25em 0 1.6em;
   text-align: center;
@@ -241,4 +264,20 @@ select:focus {
 a.form__button {
   display: inline-block;
   vertical-align: top;
+}
+
+/* Remove this styling eventually... */
+.calib2:hover,
+.calib2:focus {
+  background-color: #ff00ff !important;
+}
+
+.calib3:hover,
+.calib3:focus {
+  background-color: #6cada0 !important;
+}
+
+.calib4:hover,
+.calib4:focus {
+  background-color: #37d917 !important;
 }

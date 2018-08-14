@@ -33,6 +33,7 @@ var collect_data = true;
 var face_tracker;
 var webgazer_training_data;
 var time_stamp; // current time. For functions that requires time delta for animation or controlling sampling rate.
+var delta;
 var webgazer_time_stamp; // time stamp. Used specifically to control the sampling rate of webgazer
 var elem_array = []; // array of elements gazed
 var current_task = "instruction"; // current running task.
@@ -71,8 +72,8 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 /**
  * The only function needed to call when deploy. Simply call this function when you want to start up the program.
  */
-function start_medusa() {
-  start_calibration_exp();
+function start_medusa(interaction, stimuli) {
+  start_calibration_exp(interaction, stimuli);
 }
 
 /**
@@ -208,9 +209,15 @@ function initiate_webgazer() {
       }
       store_data.gaze_x.push(data.x);
       store_data.gaze_y.push(data.y);
-    })
-    .begin()
-    .showPredictionPoints(false);
+    });
+
+    // Allow Webgazer 1 second to initialize to avoid 'no stream' errors
+    setTimeout(function() {
+      webgazer
+        .begin()
+        .showPredictionPoints(false);
+    }, 1000);
+    
   check_webgazer_status();
 }
 
@@ -646,7 +653,6 @@ function create_new_dot_calibration() {
   collect_data = true;
   hide_face_tracker();
   delete_elem("instruction");
-
   start_calibration_task(); // stage 2
 }
 
@@ -750,6 +756,7 @@ function navigate_tasks() {
  * SIMPLE DOT VIEWING PARADIGM
  * If you want to introduce your own paradigms, follow the same structure and extend the design array above.
  ************************************/
+
 function create_simple_instruction() {
   session_time = new Date().getTime().toString();
   reset_store_data();
@@ -817,6 +824,7 @@ function finish_simple_paradigm() {
 /************************************
  * SMOOTH PURSUIT PARADIGM
  ************************************/
+
 function create_pursuit_instruction() {
   reset_store_data();
   session_time = new Date().getTime().toString();
@@ -831,6 +839,8 @@ function create_pursuit_instruction() {
 }
 
 function loop_pursuit_paradigm() {
+  darken_canvas();
+
   if (num_objects_shown >= pursuit_paradigm_settings.num_trials) {
     finish_pursuit_paradigm();
     return;
@@ -841,7 +851,6 @@ function loop_pursuit_paradigm() {
   var context = canvas.getContext("2d");
   collect_data = true;
   webgazer.resume();
-  clear_canvas();
   current_task = "pursuit_paradigm";
 
   if (objects_array.length === 0) {
@@ -862,33 +871,20 @@ function loop_pursuit_paradigm() {
   curr_object = objects_array.pop();
   curr_object.cx = curr_object.x;
   curr_object.cy = curr_object.y;
-  num_objects_shown++;
+  
   var dot = {
     x: curr_object.cx,
     y: curr_object.cy,
     r: DEFAULT_DOT_RADIUS
   };
-  var canvas = document.getElementById("canvas-overlay");
-  var context = canvas.getContext("2d");
-  clear_canvas();
-  //animated circle
-  context.lineWidth = 7;
-  context.beginPath();
-  context.strokeStyle = DOT_COLOR;
-  context.arc(dot.x, dot.y, dot.r, Math.PI / -2, Math.PI * 3 / 2, false);
-  context.stroke();
-  context.font = FONT_FAMILY;
-  context.fillStyle = DOT_COLOR;
-  context.textAlign = "center";
-  context.textBaseline = "middle";
-  context.fillText(
-    pursuit_paradigm_settings.num_trials - num_objects_shown,
-    dot.x,
-    dot.y
-  );
+
+  num_objects_shown++;
+  draw_dot(context, dot, 0);
+  draw_countdown_number(context, dot, 1, pursuit_paradigm_settings.num_trials, num_objects_shown);
+
   setTimeout(function () {
     time_stamp = null;
-    draw_moving_dot(context);
+    draw_moving_dot(context, dot);
   }, pursuit_paradigm_settings.fixation_rest_time);
 }
 
@@ -995,7 +991,6 @@ function finish_massvis_paradigm() {
  * Create the survey
  */
 function create_survey() {
-
   var age_options = "";
   var performance_rating = "";
   for (var i = 18; i < 120; i++) {

@@ -18,10 +18,12 @@ var stimuli; // either "static" or "tracking"
  * Launch an experiment that asks the user to first calibrate, then validate 
  * eye gaze accuracy via alternating tracking or static procedures.
  */
-function start_calibration_exp() {
+function start_calibration_exp(i, s) {
   // Define independent variables for this run
-  interaction = "click";
-  stimuli = "static";
+  // interaction = "watch";
+  // stimuli = "tracking";
+  interaction = i;
+  stimuli = s;
 
   create_consent_form();
 }
@@ -32,19 +34,17 @@ function start_calibration_exp() {
  * stimuli (static or tracking).
  */
 function get_calibration_instructions() {
-  var text;
+  var num_trials = calibration_settings.num_trials.toString();
+  var text = "This is the calibration step. There will be " + num_trials + 
+    " dots in total.";
 
   // Inform user about static dots
   if (stimuli == "static") {
-    var num_trials = calibration_settings.num_trials.toString();
-    text = "This is the calibration step. There will be " + num_trials + " dots in total.";
-    // Inform user about clicking interaction
     if (interaction == "click") {
       var num_clicks = calibration_settings.max_num_clicks.toString();
       text += "<br><br>To advance, please click on each dot " + num_clicks + 
         " times while looking at it."
     }
-    // Inform user about watching interaction
     else if (interaction == "watch") {
       var num_seconds = (calibration_settings.dot_show_time / 1000).toString();
       text += "<br><br>Please look at each dot that appears. Each will stay on the screen " +
@@ -54,11 +54,22 @@ function get_calibration_instructions() {
       text = undefined;
     }
   }
+
   // Inform user about moving dot
   else if (stimuli == "tracking") {
-    // ** TODO
+    if (interaction == "click") {
+      var num_clicks = calibration_settings.max_num_clicks.toString();
+      text += "<br><br>When a dot appears on the screen, please click on it to advance.";
+    }
+    else if (interaction == "watch") {
+      text += "<br><br>When a dot appears on the screen, please follow it with your eyes.";
+    }
+    else {
+      text = undefined;
+    }
   }
 
+  // Erroneous interaction or stimuli global vars
   if (text === undefined) {
     text = "Error: Malformed calibration settings. Please ask for assistance or try again."
   }
@@ -86,24 +97,44 @@ function start_calibration_task() {
  * participant has finished the calibration task.
  */
 function check_calibration_finished() {
-  if (stimuli == "static") {
-    if (calibration_current_round > calibration_settings.num_rounds) {
-      finish_calibration();
-      return;
-    }
-    var canvas = document.getElementById("canvas-overlay");
-    var context = canvas.getContext("2d");
-    clear_canvas();
+  if (calibration_current_round > calibration_settings.num_rounds) {
+    finish_calibration();
+    return;
+  }
+
+  // Calibration isn't finished
+  var canvas = document.getElementById("canvas-overlay");
+  var context = canvas.getContext("2d");
+  clear_canvas();
+
+  if (stimuli == "static") {  
     if (objects_array.length === 0) {
       objects_array = create_dot_array(calibration_settings.position_array, false).reverse();
     }
     curr_object = objects_array.pop();
   }
+
   else if (stimuli == "tracking") {
-    continue; // ** TODO
+    if (objects_array.length === 0) {
+      var temp = {arr: pursuit_paradigm_settings.position_array};
+      var obj = $.extend(true, {}, temp);
+      objects_array = obj.arr;
+      objects_array = shuffle(objects_array);
+      for (var i = 0; i < objects_array.length; i++) {
+        objects_array[i].x = canvas.width * objects_array[i].x;
+        objects_array[i].tx = canvas.width * objects_array[i].tx;
+        objects_array[i].y = canvas.height * objects_array[i].y;
+        objects_array[i].ty = canvas.height * objects_array[i].ty;
+      }
+    }
+    curr_object = objects_array.pop();
+    curr_object.cx = curr_object.x;
+    curr_object.cy = curr_object.y;
   }
+
   else {
-    console.error("Invalid stimuli.");
+    console.error("Invalid stimulus type.");
+    return;
   }
 }
 
@@ -124,13 +155,14 @@ function collect_training_data() {
     });
   } 
   else if (interaction == "watch") {
+    console.log("collected data");
     store_data.description = (num_objects_shown + 1).toString();
     send_gaze_data_to_database();
     webgazer.recordScreenPosition(curr_object.x, curr_object.y);
     time_stamp = new Date().getTime();
   }
   else {
-    console.error("Invalid interaction.");
+    console.error("Invalid interaction type.");
   }
 }
 
@@ -140,14 +172,19 @@ function collect_training_data() {
  * along the screen, as appropriate).
  */
 function continue_calibration() {
+  var canvas = document.getElementById("canvas-overlay");
+  var context = canvas.getContext("2d");
+
   if (stimuli == "static") {
-    draw_dot_calibration(context, curr_object, DOT_COLOR);
     num_objects_shown++;
+    draw_static_dot_calibration(context, curr_object);
   } 
   else if (stimuli == "tracking") {
-    continue; // ** TODO
+    num_objects_shown++;
+    draw_tracking_dot_calibration(context, curr_object);
   }
   else {
-    console.error("Invalid stimuli.");
+    console.error("Invalid stimulus type.");
+    return;
   }
 }

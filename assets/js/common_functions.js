@@ -438,10 +438,10 @@ function send_user_data_to_database(callback) {
  * @param {*} context - context of the canvas to draw
  * @param {*} dot - the Dot object
  */
-function draw_track(context, dot, color) {
+function draw_track(context, dot) {
   context.beginPath();
   context.arc(dot.x, dot.y, dot.r, 0, 2 * Math.PI);
-  context.strokeStyle = color;
+  context.strokeStyle = DOT_COLOR;
   context.lineWidth = 1;
   context.fillStyle = DOT_CENTER_COLOR;
   context.fill();
@@ -494,7 +494,7 @@ function draw_dot(context, dot, arc_len) {
 }
 
 /**
- * Draws a calibration dot designed for the simple paradigm.
+ * Draws a calibration dot designed for the static paradigm.
  * 
  * @param {*}   context - The 2D rendering context for the HTML5 canvas
  * @param {Dot} dot - The current object
@@ -522,9 +522,7 @@ function draw_simple_dot(context, dot) {
  *
  * @param {*} context - The 2D rendering context for the HTML5 canvas
  */
-function draw_moving_dot(context) {
-  if (current_task !== "pursuit_paradigm") return;
-
+function draw_moving_dot(context, dot) {
   var now = new Date().getTime(),
     dt = now - (time_stamp || now);
   time_stamp = now;
@@ -543,7 +541,7 @@ function draw_moving_dot(context) {
   curr_object.cx = curr_object.cx + x_dist_per_frame;
   curr_object.cy = curr_object.cy + y_dist_per_frame;
 
-  var dot = {
+  dot = {
     x: curr_object.cx,
     y: curr_object.cy,
     r: DEFAULT_DOT_RADIUS
@@ -553,6 +551,9 @@ function draw_moving_dot(context) {
     loop_pursuit_paradigm();
     return;
   } else {
+    var canvas = document.getElementById("canvas-overlay");
+    var context = canvas.getContext("2d");
+    clear_canvas();
     draw_dot(context, dot, 0);
     draw_countdown_number(context, dot, 1, pursuit_paradigm_settings.num_trials, num_objects_shown);
     request_anim_frame(draw_moving_dot);
@@ -637,6 +638,10 @@ function draw_massvis_image(heatmap_toggle) {
     curr_object.origImageData = imageData;
   }
 }
+
+/*************************************************************************
+ * Functions that toggle the state of clmtrackr's facial recognition tool.
+ *************************************************************************/
 
 /**
  * Show the face tracker onscreen.
