@@ -269,7 +269,7 @@ a.form__button {
 /* Remove this styling eventually... */
 .calib2:hover,
 .calib2:focus {
-  background-color: #ff00ff !important;
+  background-color: #6049b3 !important;
 }
 
 .calib3:hover,
@@ -280,4 +280,22 @@ a.form__button {
 .calib4:hover,
 .calib4:focus {
   background-color: #37d917 !important;
+}
+
+.calib5:hover,
+.calib5:focus {
+  background-color: #ab0f6e !important;
+}
+
+.calib6:hover,
+.calib6:focus {
+  background-color: #f9a5e9 !important;
+}
+
+.calib1, .calib2, .calib3, .calib4, .calib5, .calib6 {
+  width: 33% !important;
+}
+
+.flex-container {
+  display: flex;
 }

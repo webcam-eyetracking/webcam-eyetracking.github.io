@@ -90,7 +90,7 @@ function create_consent_form() {
     '<header class="form__header">' +
     '<h2 class="form__title">Consent form</h2>' +
     "<div style='overflow-y: scroll; max-height: 40vh;'>" +
-    "<p class='information'><b>Why we are doing this research:</b> We are trying to examine the feasibility of using consumer-grade webcams to conduct eye-tracking experiments to replace traditional eye-tracking method.</p>" +
+    "<p class='information'><b>Why we are doing this research:</b> We are trying to examine the feasibility of using consumer-grade webcams to conduct eye-pursuit experiments to replace traditional eye-pursuit method.</p>" +
     "<p class='information'><b>What you will have to do:</b> You will be presented with a series of tasks that involves looking at some dots and data visualizations .</p>" +
     "<p class='information'><b>Privacy and Data collection:</b> We will not ask you for your name. We will not store any videos or images from the webcam. The only data from your webcam that we are collecting is predicted coordinates of your gaze made by webgazer. All data will be stored in a secure server.</p>" +
     "<p class='information'><b>Duration:</b> Approximately 10 minutes.</p>" +
@@ -713,7 +713,7 @@ function draw_dot_calibration(context, dot) {
 /**
  * Triggered once the calibration process finishes. Clean up things and go on to next step
  */
-function finish_calibration() {
+function _finish_calibration() {
   calibration_current_round = 1;
   objects_array = [];
   num_objects_shown = 0;
@@ -811,14 +811,13 @@ function finish_simple_paradigm() {
   num_objects_shown = 0;
   store_data.task = "simple";
   store_data.description = "success";
-  // TODO: Fix control flow
-  paradigm = "survey";
   webgazer.pause();
   collect_data = false;
   heatmap_data_x = store_data.gaze_x.slice(0);
   heatmap_data_y = store_data.gaze_y.slice(0);
   send_gaze_data_to_database();
-  show_heatmap_text("navigate_tasks");
+  // return to start_validation_task in calibration_exp.js
+  start_validation_task();
 }
 
 /************************************
@@ -829,8 +828,8 @@ function create_pursuit_instruction() {
   reset_store_data();
   session_time = new Date().getTime().toString();
   create_general_instruction(
-    "Dot tracking",
-    "A dot will appear on the screen. When it changes color, please follow it. You will have to repeat this procedure " +
+    "Dot pursuit",
+    "Please follow the dot that appears on the screen. You will have to repeat this procedure " +
     pursuit_paradigm_settings.num_trials.toString() +
     " times.",
     "loop_pursuit_paradigm()",
@@ -854,12 +853,9 @@ function loop_pursuit_paradigm() {
   current_task = "pursuit_paradigm";
 
   if (objects_array.length === 0) {
-    var temp = {
-      arr: pursuit_paradigm_settings.position_array
-    };
+    var temp = {arr: pursuit_paradigm_settings.position_array};
     var obj = $.extend(true, {}, temp);
-    objects_array = obj.arr;
-    objects_array = shuffle(objects_array);
+    objects_array = obj.arr.reverse();
     for (var i = 0; i < objects_array.length; i++) {
       objects_array[i].x = canvas.width * objects_array[i].x;
       objects_array[i].tx = canvas.width * objects_array[i].tx;
@@ -899,6 +895,8 @@ function finish_pursuit_paradigm() {
   heatmap_data_x = store_data.gaze_x.slice(0);
   heatmap_data_y = store_data.gaze_y.slice(0);
   send_gaze_data_to_database();
+  // return to start_validation_task in calibration_exp.js
+  start_validation_task();
 }
 
 /************************************

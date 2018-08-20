@@ -50,10 +50,16 @@
         
         <!-- Button to proceed to consent form -->
         <!-- <a href="#" class="form__button" onclick="start_medusa()">Continue</a> -->
-        <a href="#" class="form__button calib1" onclick="start_medusa('watch', 'static')">Watch/Static</a>
-        <a href="#" class="form__button calib2" onclick="start_medusa('click', 'static')">Click/Static</a>
-        <a href="#" class="form__button calib3" onclick="start_medusa('watch', 'tracking')">Watch/Tracking</a>
-        <a href="#" class="form__button calib4" onclick="start_medusa('click', 'tracking')">Click/Tracking</a>
+        <div class="flex-container">
+            <a href="#" class="form__button calib1" onclick="start_medusa('watch', 'static')">Watch/Static</a>
+            <a href="#" class="form__button calib2" onclick="start_medusa('click', 'static')">Click/Static</a>
+            <a href="#" class="form__button calib3" onclick="start_medusa('placebo', 'static')">Placebo/Static</a>
+        </div>
+        <div class="flex-container">
+            <a href="#" class="form__button calib4" onclick="start_medusa('watch', 'pursuit')">Watch/Tracking</a>
+            <a href="#" class="form__button calib5" onclick="start_medusa('click', 'pursuit')">Click/Tracking</a>
+            <a href="#" class="form__button calib6" onclick="start_medusa('placebo', 'pursuit')">Placebo/Tracking</a>
+        </div>
     </div>
 </body>
 

@@ -76,7 +76,7 @@ var simple_paradigm_settings = {
   ],
   num_trials: 8,
   fixation_rest_time: 1500, // amount of time 'target' will appear on screen with each trial, in ms
-  dot_show_time: 5000 // amount of time dot will appear on screen with each trial, in ms
+  dot_show_time: 2500 // amount of time dot will appear on screen with each trial, in ms
 };
 
 /************************************
@@ -90,37 +90,17 @@ var pursuit_paradigm_settings = {
       ty: 0.2
     },
     {
-      x: 0.2,
-      y: 0.2,
-      tx: 0.2,
-      ty: 0.8
-    },
-    {
-      x: 0.2,
-      y: 0.2,
-      tx: 0.8,
-      ty: 0.8
-    },
-
-    {
       x: 0.8,
       y: 0.2,
       tx: 0.2,
       ty: 0.2
     },
     {
-      x: 0.8,
+      x: 0.2,
       y: 0.2,
       tx: 0.2,
       ty: 0.8
     },
-    {
-      x: 0.8,
-      y: 0.2,
-      tx: 0.8,
-      ty: 0.8
-    },
-
     {
       x: 0.2,
       y: 0.8,
@@ -129,22 +109,33 @@ var pursuit_paradigm_settings = {
     },
     {
       x: 0.2,
+      y: 0.2,
+      tx: 0.8,
+      ty: 0.8
+    },
+    {
+      x: 0.8,
+      y: 0.8,
+      tx: 0.2,
+      ty: 0.8
+    },
+    {
+      x: 0.2,
       y: 0.8,
       tx: 0.8,
       ty: 0.2
+    },
+    {
+      x: 0.8,
+      y: 0.2,
+      tx: 0.2,
+      ty: 0.8
     },
     {
       x: 0.2,
       y: 0.8,
       tx: 0.8,
       ty: 0.8
-    },
-
-    {
-      x: 0.8,
-      y: 0.8,
-      tx: 0.2,
-      ty: 0.2
     },
     {
       x: 0.8,
@@ -154,13 +145,31 @@ var pursuit_paradigm_settings = {
     },
     {
       x: 0.8,
+      y: 0.2,
+      tx: 0.8,
+      ty: 0.8
+    },
+    {
+      x: 0.8,
       y: 0.8,
       tx: 0.2,
       ty: 0.8
+    },
+    {
+      x: 0.2,
+      y: 0.8,
+      tx: 0.2,
+      ty: 0.2
+    },
+    {
+      x: 0.2,
+      y: 0.2,
+      tx: 0.8,
+      ty: 0.2
     }
   ],
   num_trials: 14,
-  dot_show_time: 3500,
+  dot_show_time: 1500,
   fixation_rest_time: 1500
 };
 

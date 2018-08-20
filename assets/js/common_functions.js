@@ -354,9 +354,9 @@ function send_gaze_data_to_database(callback) {
         "Unable to add item: " + "\n" + JSON.stringify(err, undefined, 2)
       );
     } else {
-      console.log(
-        "PutItem succeeded: " + "\n" + JSON.stringify(data, undefined, 2)
-      );
+      // console.log(
+      //   "PutItem succeeded: " + "\n" + JSON.stringify(data, undefined, 2)
+      // );
       callback;
     }
   });
@@ -470,7 +470,7 @@ function draw_fixation_cross(midX, midY, canvas_object) {
 }
 
 /**
- * Renders a dot for eyetracking calibration.
+ * Renders a dot for eyepursuit calibration.
  *
  * @param {*}   context - The 2D rendering context for the HTML5 canvas
  * @param {Dot} dot - The current object
