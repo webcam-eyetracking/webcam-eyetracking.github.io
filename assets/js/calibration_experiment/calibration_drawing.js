@@ -40,11 +40,11 @@ function draw_static_dot_calibration(context) {
  * @return {int} the proportion of the arc to be REMOVED from the ring
  */
 function get_arc_length() {
-  if (interaction === "click") {
+  if (interaction === "click" || interaction === "placebo") {
     return (calibration_settings.max_num_clicks - num_clicks_on_dot) * 
       Math.PI * 2 / calibration_settings.max_num_clicks;
   } 
-  else if (interaction === "watch" || interaction === "placebo") {
+  else if (interaction === "watch") {
     var time = new Date().getTime();
     delta = time - time_stamp;
     return delta * Math.PI * 2 / calibration_settings.dot_show_time;
@@ -60,10 +60,10 @@ function get_arc_length() {
  * appropriate period of time; false otherwise.
  */
 function check_static_trial_done() {
-  if (interaction == "watch" || interaction === "placebo") {
+  if (interaction == "watch") {
     return delta >= calibration_settings.dot_show_time;
   }
-  else if (interaction == "click") {
+  else if (interaction == "click" || interaction === "placebo") {
     return num_clicks_on_dot === calibration_settings.max_num_clicks;
   }
   else {
@@ -124,10 +124,10 @@ function draw_pursuit_dot_calibration(context) {
     calibration_settings.num_trials, num_objects_shown);
 
   // Set timeout so newly rendered dots pause before immediately moving
-  if (interaction == "watch" || interaction === "placebo") {
+  if (interaction == "watch") {
     pursuit_watch_pause(context);
   }
-  if (interaction == "click") {
+  if (interaction == "click" || interaction === "placebo") {
     pursuit_click_pause(context);
   }
 }

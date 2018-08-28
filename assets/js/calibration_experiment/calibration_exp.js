@@ -25,9 +25,10 @@ function start_calibration_exp(i, s) {
   // Define independent variables for this run
   interaction = i;
   stimuli = s;
-  remaining_tasks = ["simple", "pursuit"];
+  remaining_tasks = ["static", "pursuit"];
 
-  create_consent_form();
+  // create_consent_form();
+  setup_calibration_html();
 }
 
 /**
@@ -42,7 +43,7 @@ function get_calibration_instructions() {
 
   // Inform user about static dots
   if (stimuli == "static") {
-    if (interaction == "click") {
+    if (interaction == "click" || interaction == "placebo") {
       var num_clicks = calibration_settings.max_num_clicks.toString();
       text += "<br><br>Please click on each dot " + num_clicks + 
         " times while looking at it."
@@ -52,11 +53,6 @@ function get_calibration_instructions() {
       text += "<br><br>Please look at each dot that appears. Each will stay on the screen " +
         "for " + num_seconds + " seconds.";
     }
-    else if (interaction == "placebo") {
-      var num_seconds = (calibration_settings.dot_show_time / 1000).toString();
-      text += "<br><br><b>Please repeatedly click on the dot</b> while looking at it. " +
-        " Each will stay on the screen for " + num_seconds + " seconds.";
-    }
     else {
       text = undefined;
     }
@@ -64,17 +60,13 @@ function get_calibration_instructions() {
 
   // Inform user about moving dot
   else if (stimuli == "pursuit") {
-    if (interaction == "click") {
+    if (interaction == "click" || interaction == "placebo") {
       text += "<br><br>When a dot appears on the screen, please follow it " +
         "with your eyes. When the dot stops moving, click on it once to advance.";
     }
     else if (interaction == "watch") {
       text += "<br><br>When a dot appears on the screen, please follow it " +
         "with your eyes.";
-    }
-    else if (interaction == "placebo") {
-      text += "<br><br>When a dot appears on the screen, please follow it " + 
-        "with your eyes and <b>click on it once it stops moving.</b>";
     }
     else {
       text = undefined;
@@ -163,11 +155,25 @@ function collect_training_data() {
       }
     });
   } 
-  else if (interaction == "watch" || interaction == "placebo") {
+  else if (interaction == "watch") {
     store_data.description = (num_objects_shown + 1).toString();
-    send_gaze_data_to_database();
+    // send_gaze_data_to_database();
     webgazer.recordScreenPosition(curr_object.x, curr_object.y);
     time_stamp = new Date().getTime();
+  }
+  else if (interaction == "placebo") {
+    store_data.description = (num_objects_shown + 1).toString();
+    // send_gaze_data_to_database();
+    webgazer.recordScreenPosition(curr_object.x, curr_object.y);
+    time_stamp = new Date().getTime();
+    // Clicks aren't recorded as data, but still register to advance the experiment
+    $("#canvas-overlay").unbind("click").click(function (e) {
+      var x = e.clientX;
+      var y = e.clientY;
+      if (Math.pow(x - curr_object.x, 2) + Math.pow(y - curr_object.y, 2) < Math.pow(DEFAULT_DOT_RADIUS, 2)) {
+        num_clicks_on_dot++;
+      }
+    });
   }
   else {
     console.error("Invalid interaction type.");
@@ -198,7 +204,7 @@ function continue_calibration() {
 }
 
 /**
- * Randomly returns one of the 2 validation tasks (simple or pursuit paradigms)
+ * Randomly returns one of the 2 validation tasks (static or pursuit paradigms)
  * and removes this task from the array of remaining tasks to be completed.
  * Returns null if both tasks are complete.
  * @return {string} or {null}
@@ -223,7 +229,8 @@ function finish_calibration() {
   objects_array = [];
   num_objects_shown = 0;
   store_data.description = "success";
-  send_gaze_data_to_database();
+  write_calibration_data(); // in calibration_data.js
+  // send_gaze_data_to_database();
   webgazer.pause();
   collect_data = false;
   start_validation_task();
@@ -233,12 +240,19 @@ function finish_calibration() {
  * Proceeds to the two validation tasks (in a randomized order).
  */
 function start_validation_task() {
+  // Save data if participant has already completed a validation task
+  if (remaining_tasks.length < 2) {
+    console.log("writing data from task called " + paradigm);
+    write_validation_data(paradigm);
+  }
+
   paradigm = get_validation_task();
 
   if (paradigm == null) {
     paradigm = "survey"; // Finished!
     clear_canvas();
     lighten_canvas();
+    download_csv(); // Save all data from this trial
     create_survey();
   }
   else {

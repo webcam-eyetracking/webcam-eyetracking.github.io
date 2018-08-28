@@ -40,8 +40,8 @@ var current_task = "instruction"; // current running task.
 var curr_object = null; // current object on screen. Can be anything. Used to check collision
 var objects_array = []; //array of dots
 var num_objects_shown = 0; //number of objects shown
-var paradigm = "simple"; // the paradigm to use for the test
-var possible_paradigm = ["simple", "pursuit", "heatmap", "massvis"];
+var paradigm = "static"; // the paradigm to use for the test
+var possible_paradigm = ["static", "pursuit", "heatmap", "massvis"];
 var screen_timeout = 3000;
 var cam_width = 320;
 var cam_height = 240;
@@ -53,6 +53,7 @@ var calibration_sprite_1 = [];
 var calibration_sprite_2 = [];
 var calibration_sprite_3 = [];
 var num_clicks_on_dot = 0; // number of times user has clicked on calibration dot
+var consent_btn = false; // true if user clicked on 'View Consent & Instructions' button
 
 /************************************
  * SETTING UP AWS
@@ -141,7 +142,7 @@ function consent_form_navigation() {
     if ($("#consent-yes").is(":checked")) {
       load_webgazer();
     } else if ($("#consent-no").is(":checked")) {
-      window.location.href = "../index.html";
+      window.location.href = "../../index.html";
     } else {
       document.getElementById("webcam-info").innerHTML = "";
       document.getElementById("webcam-info").innerHTML +=
@@ -227,11 +228,21 @@ function initiate_webgazer() {
 function check_webgazer_status() {
   if (webgazer.isReady()) {
     console.log("webgazer is ready.");
-    // Create database
-    createID();
-    create_experiment_instruction();
-    create_gaze_database();
-    create_user_database();
+    createID(); // Create database
+
+    // If user pressed View Instructions button, proceed with instructions.
+    if (consent_btn) {
+      create_experiment_instruction();
+    }
+    // Else, show video feed as part of calibration setup.
+    else {
+      show_video_feed();
+      console.log('showing video feed');
+      $('button').prop('disabled', false); // Enable the 'continue' button
+    }
+
+    // create_gaze_database();
+    // create_user_database();
   } else {
     setTimeout(check_webgazer_status, 100);
   }
@@ -338,7 +349,7 @@ function create_experiment_instruction() {
   session_time = new Date().getTime().toString();
   store_data.task = "experiment";
   store_data.description = "begin";
-  send_gaze_data_to_database();
+  // send_gaze_data_to_database();
   if ($("#consent-yes").is(":checked")) {
     var instruction = document.createElement("div");
     var instruction_guide1 =
@@ -541,9 +552,10 @@ function create_webcam_instruction_reset() {
 function create_webcam_instruction_final_check() {
   create_general_instruction(
     "Final words",
-    "As you progress through the experiment, try to maintain your head position, and recalibrate whenever you think the program fails to identify your face and your eyes. Again, we really appreciate your participation.",
-    "create_calibration_instruction(); delete_elem('guide-img');",
-    "Continue"
+    "As you progress through the experiment, try to maintain your head position, and recalibrate whenever you think the program fails to identify your face and your eyes. Again, we really appreciate your participation." +
+    "<br><br>Press finish to return to the main page and begin an experiment.",
+    "window.location.href = '../../index.html'; delete_elem('guide-img');",
+    "Finish"
   );
 
   var guide = new Image();
@@ -567,17 +579,60 @@ function create_webcam_instruction_final_check() {
  ************************************/
 
 /**
+ * Generates the basic template for setting up the instruction page. If the
+ * participant isn't using the Chrome browser, displays an error message.
+ */
+function setup_calibration_html() {
+  create_overlay();
+  var form = document.createElement("div");
+  form.id = "setup";
+  form.className += "overlay-div";
+  document.body.style.overflow = "hidden";
+  form.innerHTML += "<p class='information' id='webcam-info' style='color: red'></p>";
+  form.style.zIndex = 11;
+  document.body.appendChild(form);
+  var ua = navigator.userAgent.match(
+      /(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i
+    ),
+    browser;
+  if (
+    navigator.userAgent.match(/Edge/i) ||
+    navigator.userAgent.match(/Trident.*rv[ :]*11\./i)
+  ) {
+    browser = "msie";
+  } else {
+    browser = ua[1].toLowerCase();
+  }
+  if (browser !== "chrome") {
+    isChrome = false;
+    document.getElementById("webcam-info").innerHTML = "";
+    document.getElementById("webcam-info").innerHTML += "Please use Chrome!";
+    return;
+  } else {
+    form.innerHTML += '<header class="form__header">' +
+    '<h2 class="form__title">Experiment Setup</h2>' +
+    "<div style='overflow-y: scroll; max-height: 40vh;'>" +
+    "<p class='information'>" +
+    "Please wait until the program has accurately identified your face. Use the video feed below as a guide. Once this is done, press continue." +
+    "</p>" +
+    "</div>" +
+    "</header>" +
+    '<button disabled class="form__button" type="button" onclick="create_calibration_instruction()">Continue</button>' +
+    "</form>";
+    load_webgazer();
+  }
+}
+
+/**
  * Shows calibration instructions.
  */
 function create_calibration_instruction() {
   webgazer_training_data = undefined;
+  delete_elem("setup");
   clear_canvas();
-  delete_elem("instruction");
   var instruction = document.createElement("div");
   var calibration_exp_instruction_text = get_calibration_instructions(); // stage 2
   var instruction_guide1 = calibration_exp_instruction_text;
-  // var instruction_guide2 = "If you have done this before, and saved a calibration file, you can upload the file to skip this step entirely.";
-  delete_elem("consent_form");
   instruction.id = "instruction";
   instruction.className += "overlay-div";
   instruction.style.zIndex = 12;
@@ -625,7 +680,7 @@ function start_calibration() {
   // send initial data to database
   store_data.task = "calibration";
   store_data.description = "begin";
-  send_gaze_data_to_database();
+  // send_gaze_data_to_database();
   current_task = "calibration";
   // var gazeDot = document.getElementById("gazeDot");
   // gazeDot.style.zIndex = 14;
@@ -718,10 +773,10 @@ function _finish_calibration() {
   objects_array = [];
   num_objects_shown = 0;
   store_data.description = "success";
-  send_gaze_data_to_database();
+  // send_gaze_data_to_database();
   webgazer.pause();
   collect_data = false;
-  paradigm = "simple";
+  paradigm = "static";
   heatmap_data_x = store_data.gaze_x.slice(0);
   heatmap_data_y = store_data.gaze_y.slice(0);
   show_heatmap_text("navigate_tasks");
@@ -732,7 +787,7 @@ function _finish_calibration() {
  */
 function navigate_tasks() {
   switch (paradigm) {
-    case "simple":
+    case "static":
       create_simple_instruction();
       break;
     case "pursuit":
@@ -753,7 +808,7 @@ function navigate_tasks() {
 }
 
 /************************************
- * SIMPLE DOT VIEWING PARADIGM
+ * STATIC (SIMPLE) DOT VIEWING PARADIGM
  * If you want to introduce your own paradigms, follow the same structure and extend the design array above.
  ************************************/
 
@@ -777,7 +832,7 @@ function loop_simple_paradigm() {
   collect_data = true;
   webgazer.resume();
   clear_canvas();
-  current_task = "simple_paradigm";
+  current_task = "static_paradigm";
   darken_canvas();
 
   // Grab more dots if the number of trials exceeds the length of the position array
@@ -809,15 +864,14 @@ function finish_simple_paradigm() {
   clear_canvas();
   objects_array = [];
   num_objects_shown = 0;
-  store_data.task = "simple";
+  store_data.task = "static";
   store_data.description = "success";
   webgazer.pause();
   collect_data = false;
   heatmap_data_x = store_data.gaze_x.slice(0);
   heatmap_data_y = store_data.gaze_y.slice(0);
-  send_gaze_data_to_database();
-  // return to start_validation_task in calibration_exp.js
-  start_validation_task();
+  // send_gaze_data_to_database();
+  start_validation_task(); // Return to start_validation_task in calibration_exp.js
 }
 
 /************************************
@@ -894,9 +948,8 @@ function finish_pursuit_paradigm() {
   collect_data = false;
   heatmap_data_x = store_data.gaze_x.slice(0);
   heatmap_data_y = store_data.gaze_y.slice(0);
-  send_gaze_data_to_database();
-  // return to start_validation_task in calibration_exp.js
-  start_validation_task();
+  // send_gaze_data_to_database();
+  start_validation_task(); // Return to start_validation_task in calibration_exp.js
 }
 
 /************************************
@@ -964,7 +1017,7 @@ function show_massvis_image() {
     heatmap_data_x = store_data.gaze_x.slice(0);
     heatmap_data_y = store_data.gaze_y.slice(0);
     session_time = new Date().getTime().toString();
-    send_gaze_data_to_database();
+    // send_gaze_data_to_database();
     reset_store_data(show_heatmap_text("loop_massvis_paradigm"));
   }, massvis_paradigm_settings.image_show_time);
 }
@@ -975,7 +1028,7 @@ function finish_massvis_paradigm() {
   num_objects_shown = 0;
   num_objects_shown = 0;
   store_data.task = "massvis";
-  paradigm = "simple";
+  paradigm = "static";
   webgazer.pause();
   collect_data = false;
   navigate_tasks();
@@ -1168,7 +1221,7 @@ function upload_to_imgur(canvas) {
     store_data.description = link;
     store_data.object_x = [0];
     store_data.object_y = [0];
-    send_gaze_data_to_database();
+    // send_gaze_data_to_database();
   });
 }
 

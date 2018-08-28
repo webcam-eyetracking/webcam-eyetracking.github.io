@@ -11,6 +11,13 @@ var heat;
  * Displays text for the heatmap reveal.
  */
 function show_heatmap_text(function_name) {
+  // Skip if heatmaps are set to not display.
+  if (!SHOW_HEATMAPS) {
+    lighten_canvas();
+    window[function_name]();
+    return;
+  }
+
   webgazer.pause();
   collect_data = false;
   clear_canvas();
@@ -97,7 +104,7 @@ function draw_heatmap(function_name) {
     heat.draw();
   }
 
-  if (current_task === "simple_paradigm") {
+  if (current_task === "static_paradigm") {
     for (i = 0; i < simple_paradigm_settings.position_array.length; i++) {
       var midX = simple_paradigm_settings.position_array[i][0] * canvas.width;
       var midY =

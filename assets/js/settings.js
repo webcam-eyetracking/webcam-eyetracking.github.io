@@ -12,6 +12,7 @@ const TABLE_NAME = "GAZE_DATA"; // name of data table of gaze data
 const USER_TABLE_NAME = "USERS"; // name of data table of users
 const DEFAULT_DOT_RADIUS = 20;
 const SAMPLING_RATE = 10; // number of calls to function once webgazer got data per second
+const SHOW_HEATMAPS = false; // toggle for revealing heatmap feedback to participants
 
 /************************************
  * STYLING
@@ -61,7 +62,7 @@ var calibration_settings = {
 };
 
 /************************************
- * SIMPLE_PARADIGM PARAMETERS
+ * STATIC (SIMPLE) PARADIGM PARAMETERS
  ************************************/
 var simple_paradigm_settings = {
   position_array: [
@@ -80,7 +81,7 @@ var simple_paradigm_settings = {
 };
 
 /************************************
- * PURSUIT_PARADIGM PARAMETERS
+ * PURSUIT PARADIGM PARAMETERS
  ************************************/
 var pursuit_paradigm_settings = {
   position_array: [{

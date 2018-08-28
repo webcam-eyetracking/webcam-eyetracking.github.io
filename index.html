@@ -16,6 +16,7 @@
     <script src="./assets/js/heatmap_helper.js" type="text/javascript"></script>
     <script src="./assets/js/calibration_experiment/calibration_exp.js" type="text/javascript"></script>
     <script src="./assets/js/calibration_experiment/calibration_drawing.js" type="text/javascript"></script>
+    <script src="./assets/js/calibration_experiment/calibration_data.js" type="text/javascript"></script>
     <script src="./assets/js/medusa.js" type="text/javascript"></script>
 </head>
 
@@ -47,18 +48,24 @@
             <br>
             The experimental platform builds on the <a href="https://osf.io/jmz79/">research paper by Kilian Semmelmann and Sarah Weigelt</a>.
         </p>
-        
-        <!-- Button to proceed to consent form -->
-        <!-- <a href="#" class="form__button" onclick="start_medusa()">Continue</a> -->
+
+        <!-- Buttons to instructions & calibration modes -->
+        <a href="#" class="form__button instructions" onclick="consent_btn = true; create_consent_form()">View Consent & Instructions</a>
+        <br><br>
+
+        <div class="content__guide">
+            Once you've finished reading the instructions, select from the buttons below to begin your experiment.
+        </div>
+
         <div class="flex-container">
             <a href="#" class="form__button calib1" onclick="start_medusa('watch', 'static')">Watch/Static</a>
             <a href="#" class="form__button calib2" onclick="start_medusa('click', 'static')">Click/Static</a>
             <a href="#" class="form__button calib3" onclick="start_medusa('placebo', 'static')">Placebo/Static</a>
         </div>
         <div class="flex-container">
-            <a href="#" class="form__button calib4" onclick="start_medusa('watch', 'pursuit')">Watch/Tracking</a>
-            <a href="#" class="form__button calib5" onclick="start_medusa('click', 'pursuit')">Click/Tracking</a>
-            <a href="#" class="form__button calib6" onclick="start_medusa('placebo', 'pursuit')">Placebo/Tracking</a>
+            <a href="#" class="form__button calib4" onclick="start_medusa('watch', 'pursuit')">Watch/Pursuit</a>
+            <a href="#" class="form__button calib5" onclick="start_medusa('click', 'pursuit')">Click/Pursuit</a>
+            <a href="#" class="form__button calib6" onclick="start_medusa('placebo', 'pursuit')">Placebo/Pursuit</a>
         </div>
     </div>
 </body>

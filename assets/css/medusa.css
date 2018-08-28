@@ -36,6 +36,14 @@ body {
   right: 0;
 }
 
+/* Content Styles */
+
+.content__guide {
+  font-weight: 100;
+  text-decoration: underline dotted gray;
+  text-align: center;
+}
+
 /* Link Styles */
 
 a:not(.form__button):link { 
@@ -266,7 +274,18 @@ a.form__button {
   vertical-align: top;
 }
 
-/* Remove this styling eventually... */
+/* Individual button styling */
+
+.instructions {
+  width: 95% !important;
+}
+
+.instructions:hover,
+.instructions:focus {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
 .calib2:hover,
 .calib2:focus {
   background-color: #6049b3 !important;
