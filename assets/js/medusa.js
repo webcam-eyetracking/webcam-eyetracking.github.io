@@ -641,8 +641,7 @@ function create_calibration_instruction() {
     '<h2 class="form__title">Calibration</br></h2>' +
     '<p class="information">' +
     instruction_guide1 +
-    "<p>" +
-    '<p class="information">' +
+    "</p>" +
     "</header>" +
     '<button class="form__button" type="button" onclick="start_calibration()">Start</button>' +
     '<input id=\'calibration_file\' class="file__button" type="file" onchange="upload_calibration_data(event)"> </input>';
@@ -818,9 +817,7 @@ function create_simple_instruction() {
   clear_canvas();
   create_general_instruction(
     "Dot viewing",
-    "Please look at the cross. When a dot appears, please look at it. You will have to repeat this process " +
-    simple_paradigm_settings.num_trials.toString() +
-    " times.",
+    "Focus your gaze on the cross. When a dot appears, please look at it.",
     "loop_simple_paradigm()",
     "Start"
   );
@@ -837,7 +834,7 @@ function loop_simple_paradigm() {
 
   // Grab more dots if the number of trials exceeds the length of the position array
   if (objects_array.length === 0) {
-    objects_array = create_dot_array(simple_paradigm_settings.position_array, true);
+    objects_array = shuffle(create_dot_array(simple_paradigm_settings.position_array, true));
   }
 
   curr_object = objects_array.pop();
@@ -851,9 +848,9 @@ function loop_simple_paradigm() {
     draw_fixation_cross(canvas.width * 0.5, canvas.height * 0.5, canvas);
     setTimeout(function() {
       clear_canvas();
+      time_stamp = new Date().getTime();
       webgazer.resume();
       collect_data = true;
-      time_stamp = new Date().getTime();
       draw_simple_dot(context, curr_object);
       setTimeout(loop_simple_paradigm, simple_paradigm_settings.dot_show_time);
     }, simple_paradigm_settings.fixation_rest_time);
@@ -883,9 +880,7 @@ function create_pursuit_instruction() {
   session_time = new Date().getTime().toString();
   create_general_instruction(
     "Dot pursuit",
-    "Please follow the dot that appears on the screen. You will have to repeat this procedure " +
-    pursuit_paradigm_settings.num_trials.toString() +
-    " times.",
+    "Please look at the dot and follow it as it moves around the screen.",
     "loop_pursuit_paradigm()",
     "Start"
   );

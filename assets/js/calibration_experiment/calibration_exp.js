@@ -10,6 +10,10 @@
  * Repeat x the number of conditions.
  ******************************************************************************/
 
+// URLs for gifs shown in instructions (hosted on public-facing GitHub)
+const STATIC_CLICK_GIF_LOC = 'https://github.com/webcam-eyetracking/webcam-eyetracking.github.io/blob/master/assets/gifs/static_click.gif?raw=true';
+const PURSUIT_CLICK_GIF_LOC = 'https://github.com/webcam-eyetracking/webcam-eyetracking.github.io/blob/master/assets/gifs/pursuit_click.gif?raw=true';
+
 // Conditions
 var interaction; // either "click", "watch", or "placebo" [placebo click]
 var stimuli; // either "static" or "pursuit"
@@ -37,21 +41,25 @@ function start_calibration_exp(i, s) {
  * stimuli (static or pursuit).
  */
 function get_calibration_instructions() {
-  var num_trials = calibration_settings.num_trials.toString();
-  var text = "This is the calibration step. There will be " + num_trials + 
-    " dots in total.";
+  var text = "This is the calibration step. You will be asked to interact with a number of dots" +
+    " that will appear onscreen.";
 
   // Inform user about static dots
   if (stimuli == "static") {
     if (interaction == "click" || interaction == "placebo") {
       var num_clicks = calibration_settings.max_num_clicks.toString();
-      text += "<br><br>Please click on each dot " + num_clicks + 
-        " times while looking at it."
+      text += 
+        "<br><br><i>" +
+        "Please click on each dot " + num_clicks + " times while looking at it." +
+        "</i><br><br>" +
+        "<img class='content__gif' src=" + STATIC_CLICK_GIF_LOC + ">";
     }
     else if (interaction == "watch") {
       var num_seconds = (calibration_settings.dot_show_time / 1000).toString();
-      text += "<br><br>Please look at each dot that appears. Each will stay on the screen " +
-        "for " + num_seconds + " seconds.";
+      text += 
+        "<br><br><i>" +
+        "Please look at each dot that appears. Each will stay on the screen for " + num_seconds + " seconds." +
+        "</i>";
     }
     else {
       text = undefined;
@@ -61,12 +69,17 @@ function get_calibration_instructions() {
   // Inform user about moving dot
   else if (stimuli == "pursuit") {
     if (interaction == "click" || interaction == "placebo") {
-      text += "<br><br>When a dot appears on the screen, please follow it " +
-        "with your eyes. When the dot stops moving, click on it once to advance.";
+      text += 
+        "<br><br><i>" +
+        "When a dot appears on the screen, please follow it with your eyes. When the dot stops moving, click on it once to advance." +
+        "</i><br><br>" +
+        "<img class='content__gif' src=" + PURSUIT_CLICK_GIF_LOC + ">";
     }
     else if (interaction == "watch") {
-      text += "<br><br>When a dot appears on the screen, please follow it " +
-        "with your eyes.";
+      text += 
+        "<br><br><i>" +
+        "When a dot appears on the screen, please follow it with your eyes." +
+        "</i>";
     }
     else {
       text = undefined;
@@ -246,18 +259,72 @@ function start_validation_task() {
     write_validation_data(paradigm);
   }
 
+  clear_canvas();
   paradigm = get_validation_task();
 
   if (paradigm == null) {
-    paradigm = "survey"; // Finished!
-    clear_canvas();
     lighten_canvas();
-    download_csv(); // Save all data from this trial
-    create_survey();
+    show_webcam_debrief();
   }
   else {
     heatmap_data_x = store_data.gaze_x.slice(0);
     heatmap_data_y = store_data.gaze_y.slice(0);
     show_heatmap_text("navigate_tasks"); // from medusa.js
   }
+}
+
+/**
+ * Leads the participant into a final screen that will be used to collect a 
+ * webcam photo. (Can be analyzed afterwards to extract details of lighting/
+ * facial structure/other features.)
+ */
+function show_webcam_debrief() {
+  create_general_instruction(
+    "Almost done!",
+    'On the next screen, please look at the crosshair in the center. We will ' +
+    'save a photo from your webcam to help us determine how lighting and other ' +
+    'conditions affected the quality of our eye-tracking software.<br><br>' +
+    'Press the button when you are ready.',
+    "show_final_crosshair()",
+    "Continue"
+  );
+}
+
+/**
+ * Shows a blank screen with a centered crosshair that will save a webcam 
+ * snapshot and download all eye-tracking data after an elapsed 2.5 sec.
+ */
+function show_final_crosshair() {
+  var canvas = document.getElementById("canvas-overlay");
+  darken_canvas();
+  draw_fixation_cross(canvas.width * 0.5, canvas.height * 0.5, canvas);
+    setTimeout(function() {
+      // functions from calibration_data.js:
+      save_webcam_frame();
+      download_csv();
+      finish_experiment();
+    }, 2500);
+}
+
+/**
+ * Shows the final screen and embeds a button that redirects back to the main
+ * page of the experiment.
+ */
+function finish_experiment() {
+  clear_canvas();
+  lighten_canvas();
+  delete_elem("instruction");
+  var instruction = document.createElement("div");
+  instruction.id = "instruction";
+  instruction.className += "overlay-div";
+  instruction.style.zIndex = 12;
+  instruction.innerHTML +=
+    '<header class="form__header">' +
+    '<h2 class="form__title">Thank you for participating!</h2>' +
+    "<p class='information'>" +
+    'Press finish to return to the main screen.' +
+    "<p>" +
+    "</header>" +
+    '<button class="form__button" type="button" onclick="window.location.href = \'../index.html\';">Finish</button>';
+  document.body.appendChild(instruction);
 }

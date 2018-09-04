@@ -189,7 +189,12 @@ function pursuit_watch_pause(context) {
  */
 function pursuit_click_pause(context) {
   request_anim_frame(function() {
-    if (num_objects_shown == 1 || num_clicks_on_dot > 0) {
+    // Multiple clicks during a single trial should be disregarded
+    if (num_clicks_on_dot > 1) {
+      num_clicks_on_dot = 0;
+    }
+
+    if (num_objects_shown == 1 || num_clicks_on_dot == 1) {
       time_stamp = null;
       num_clicks_on_dot = 0;
 

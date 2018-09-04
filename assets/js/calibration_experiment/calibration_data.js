@@ -53,8 +53,15 @@ function write_calibration_data() {
 function write_validation_data(task_type) {
   csv += "\n\n";
 
-  var rows = ['task', 'description', 'elapsed time', 'gaze x ' + task_type, 
-    'gaze y ' + task_type, 'object x ' + task_type, 'object y ' + task_type];
+  var rows = [
+    'task', 
+    'description', 
+    'elapsed time', 
+    'gaze x ' + task_type, 
+    'gaze y ' + task_type, 
+    'object x ' + task_type, 
+    'object y ' + task_type
+  ];
 
   var data = [
     [store_data.task],
@@ -76,9 +83,56 @@ function write_validation_data(task_type) {
  * Downloads data from this run of a complete experiment to a CSV file.
  */
 function download_csv() {
-  var file_name = interaction + "_" + stimuli + ".csv";
+  var condition_number = get_anonymized_condition_number(interaction, stimuli);
+  var time_stamp = new Date().getTime();
+  var file_name = "condition" + condition_number + "_" + time_stamp + ".csv";
   var hiddenElement = document.createElement('a');
   hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+  hiddenElement.target = '_blank';
+  hiddenElement.download = file_name;
+  hiddenElement.click();
+}
+
+/**
+ * Takes the ongoing experimental condition and returns a single number for the 
+ * purpose of anonymizing the data file's name from participants.
+ * @param  {str} interaction: Either 'watch', 'click', or 'placebo'
+ * @param  {str} stimuli: Either 'static' or 'pursuit'
+ * @return {str} A number from 1 to 6
+ */
+function get_anonymized_condition_number(interaction, stimuli) {
+  if (interaction == "watch" && stimuli == "static") {
+    return "1";
+  }
+  if (interaction == "click" && stimuli == "static") {
+    return "2";
+  }
+  if (interaction == "placebo" && stimuli == "static") {
+    return "3";
+  }
+  if (interaction == "watch" && stimuli == "pursuit") {
+    return "4";
+  }
+  if (interaction == "click" && stimuli == "pursuit") {
+    return "5";
+  }
+  if (interaction == "placebo" && stimuli == "pursuit") {
+    return "6";
+  }
+  return null;
+}
+
+/**
+ * Grabs a frame from the live WebGazer stream and saves the image as a raw 
+ * PNG file.
+ */
+function save_webcam_frame() {
+  var video = document.getElementById("webgazerVideoCanvas");
+  var dataURL = video.toDataURL('image/png');
+  var time_stamp = new Date().getTime();
+  var file_name = "webcam_" + time_stamp + ".png";
+  var hiddenElement = document.createElement('a');
+  hiddenElement.href = dataURL;
   hiddenElement.target = '_blank';
   hiddenElement.download = file_name;
   hiddenElement.click();

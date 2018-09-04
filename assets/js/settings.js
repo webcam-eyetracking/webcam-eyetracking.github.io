@@ -66,17 +66,23 @@ var calibration_settings = {
  ************************************/
 var simple_paradigm_settings = {
   position_array: [
-    [0.2, 0.2],
-    [0.5, 0.2],
-    [0.8, 0.2],
-    [0.2, 0.5],
-    [0.8, 0.5],
-    [0.2, 0.8],
-    [0.5, 0.8],
-    [0.8, 0.8]
+    [CENTER_POS, CENTER_POS],
+    [LEFT_EDGE_POS, TOP_EDGE_POS],
+    [RIGHT_EDGE_POS, TOP_EDGE_POS],
+    [LEFT_EDGE_POS, BOTTOM_EDGE_POS],
+    [RIGHT_EDGE_POS, BOTTOM_EDGE_POS],
+    [CENTER_POS, TOP_EDGE_POS],
+    [LEFT_EDGE_POS, CENTER_POS],
+    [RIGHT_EDGE_POS, CENTER_POS],
+    [CENTER_POS, BOTTOM_EDGE_POS],
+    [CENTER_POS / 2, CENTER_POS / 2],
+    [CENTER_POS * 1.5, CENTER_POS / 2],
+    [CENTER_POS / 2, CENTER_POS * 1.5],
+    [CENTER_POS * 1.5, CENTER_POS * 1.5],
+    [CENTER_POS, CENTER_POS]
   ],
-  num_trials: 8,
-  fixation_rest_time: 1500, // amount of time 'target' will appear on screen with each trial, in ms
+  num_trials: 14,
+  fixation_rest_time: 1500, // amount of time crosshair will appear on screen with each trial, in ms
   dot_show_time: 2500 // amount of time dot will appear on screen with each trial, in ms
 };
 
@@ -170,7 +176,7 @@ var pursuit_paradigm_settings = {
     }
   ],
   num_trials: 14,
-  dot_show_time: 1500,
+  dot_show_time: 1000,
   fixation_rest_time: 1500
 };
 

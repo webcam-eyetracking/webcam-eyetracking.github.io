@@ -550,7 +550,8 @@ function draw_moving_dot(context, dot) {
   if (distance(curr_object.cx, curr_object.cy, curr_object.tx, curr_object.ty) < 40) {
     loop_pursuit_paradigm();
     return;
-  } else {
+  } 
+  else {
     var canvas = document.getElementById("canvas-overlay");
     var context = canvas.getContext("2d");
     clear_canvas();
