@@ -845,7 +845,7 @@ var objectdetect = (function() {
   tracking.initUserMedia_ = function(element, opt_options) {
     window.navigator.getUserMedia({
       video: true,
-      audio: opt_options.audio
+      audio: opt_options.audio,
     }, function(stream) {
         try {
           element.src = window.URL.createObjectURL(stream);
@@ -10418,7 +10418,13 @@ function store_points(x, y, k) {
 
     //Params to clmtrackr and getUserMedia constraints
     webgazer.params.clmParams = webgazer.params.clmParams || {useWebGL : true};
-    webgazer.params.camConstraints = webgazer.params.camConstraints || { video: true };
+    webgazer.params.camConstraints = webgazer.params.camConstraints || 
+        { video: 
+            {   // Increase these dimensions to use maximum resolution as permits
+                width: { ideal: 1280 }, 
+                height: { ideal: 720 } 
+            } 
+        };
 
     webgazer.params.smoothEyeBB = webgazer.params.smoothEyeBB || true;
 

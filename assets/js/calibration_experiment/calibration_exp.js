@@ -246,6 +246,7 @@ function finish_calibration() {
   // send_gaze_data_to_database();
   webgazer.pause();
   collect_data = false;
+  save_webcam_frame(); // Save a snapshot after calibration.
   start_validation_task();
 }
 
@@ -257,6 +258,7 @@ function start_validation_task() {
   if (remaining_tasks.length < 2) {
     console.log("writing data from task called " + paradigm);
     write_validation_data(paradigm);
+    save_webcam_frame(); // Save a snapshot after validation task.
   }
 
   clear_canvas();

@@ -127,10 +127,30 @@ function get_anonymized_condition_number(interaction, stimuli) {
  * PNG file.
  */
 function save_webcam_frame() {
-  var video = document.getElementById("webgazerVideoCanvas");
-  var dataURL = video.toDataURL('image/png');
+  var original_canvas = document.getElementById("webgazerVideoCanvas"),
+      video_feed = document.querySelector("video"),
+
+      // Get the exact size of the video element.
+      width = video_feed.videoWidth,
+      height = video_feed.videoHeight,
+
+      // Context object for working with the canvas.
+      context = original_canvas.getContext('2d');
+
+  console.log("video dimensions are " + width + " x " + height);
+
+  // Set the canvas to the same dimensions as the video.
+  original_canvas.width = width;
+  original_canvas.height = height;
+
+  // Draw a copy of the current frame from the video on the canvas.
+  context.drawImage(video_feed, 0, 0, width, height);
+
+  var dataURL = original_canvas.toDataURL('image/png');
+
   var time_stamp = new Date().getTime();
   var file_name = "webcam_" + time_stamp + ".png";
+
   var hiddenElement = document.createElement('a');
   hiddenElement.href = dataURL;
   hiddenElement.target = '_blank';
