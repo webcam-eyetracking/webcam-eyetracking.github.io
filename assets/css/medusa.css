@@ -37,6 +37,16 @@ body {
   right: 0;
 }
 
+.consent-div {
+  position: absolute;
+  margin: 3em auto;
+  max-width: 50em;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
 /* Content Styles */
 
 .content__guide {
@@ -182,7 +192,7 @@ label:active {
   box-sizing: border-box;
   width: 100%;
   margin: 0.5em 0 0 0;
-  font-size: 30px;
+  font-size: 26px;
   text-align: left;
   font-weight: 400;
 }
@@ -295,37 +305,68 @@ a.form__button {
   color: #000 !important;
 }
 
-.calib1:hover,
-.calib1:focus {
+.calib1a:hover,
+.calib1a:focus {
   background-color: #D6EAF8 !important;
 }
 
-.calib2:hover,
-.calib2:focus {
+.calib2a:hover,
+.calib2a:focus {
   background-color: #AED6F1 !important;
 }
 
-.calib3:hover,
-.calib3:focus {
+.calib3a:hover,
+.calib3a:focus {
   background-color: #85C1E9 !important;
 }
 
-.calib4:hover,
-.calib4:focus {
+.calib4a:hover,
+.calib4a:focus {
   background-color: #5DADE2 !important;
 }
 
-.calib5:hover,
-.calib5:focus {
+.calib5a:hover,
+.calib5a:focus {
   background-color: #3498DB !important;
 }
 
-.calib6:hover,
-.calib6:focus {
+.calib6a:hover,
+.calib6a:focus {
   background-color: #2E86C1 !important;
 }
 
-.calib1, .calib2, .calib3, .calib4, .calib5, .calib6 {
+.calib1b:hover,
+.calib1b:focus {
+  background-color: #D7BDE2 !important;
+}
+
+.calib2b:hover,
+.calib2b:focus {
+  background-color: #C39BD3 !important;
+}
+
+.calib3b:hover,
+.calib3b:focus {
+  background-color: #AF7AC5 !important;
+}
+
+.calib4b:hover,
+.calib4b:focus {
+  background-color: #9B59B6 !important;
+}
+
+.calib5b:hover,
+.calib5b:focus {
+  background-color: #884EA0 !important;
+}
+
+.calib6b:hover,
+.calib6b:focus {
+  background-color: #76448A !important;
+}
+
+.calib1a, .calib2a, .calib3a, .calib4a, .calib5a, .calib6a,
+.calib1b, .calib2b, .calib3b, .calib4b, .calib5b, .calib6b {
   width: 100% !important;
 }
 

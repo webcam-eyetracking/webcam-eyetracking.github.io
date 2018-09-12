@@ -14,9 +14,13 @@
 const STATIC_CLICK_GIF_LOC = 'https://github.com/webcam-eyetracking/webcam-eyetracking.github.io/blob/master/assets/gifs/static_click.gif?raw=true';
 const PURSUIT_CLICK_GIF_LOC = 'https://github.com/webcam-eyetracking/webcam-eyetracking.github.io/blob/master/assets/gifs/pursuit_click.gif?raw=true';
 
+// URL to Google Form survey to be completed after the experiment
+const GOOGLE_FORM_URL = 'https://goo.gl/forms/4ZCvosWghOFnfznH3';
+
 // Conditions
 var interaction; // either "click", "watch", or "placebo" [placebo click]
 var stimuli; // either "static" or "pursuit"
+var first_validation_task; // either "static" or "pursuit" 
 
 // Validation tasks
 var remaining_tasks;
@@ -25,13 +29,14 @@ var remaining_tasks;
  * Launch an experiment that asks the user to first calibrate, then validate 
  * eye gaze accuracy via alternating pursuit or static procedures.
  */
-function start_calibration_exp(i, s) {
+function start_calibration_exp(i, s, f) {
   // Define independent variables for this run
   interaction = i;
   stimuli = s;
-  remaining_tasks = ["static", "pursuit"];
+  first_validation_task = f;
 
-  // create_consent_form();
+  remaining_tasks = ["static", "pursuit"];
+  paradigm = "calibration";
   setup_calibration_html();
 }
 
@@ -224,13 +229,20 @@ function continue_calibration() {
  */
 function get_validation_task() {
   if (remaining_tasks.length === 0) {
-    return null;
+    return "final";
+  }
+  else if (remaining_tasks.length === 2) {
+    var task_name = first_validation_task;
+    remaining_tasks = remaining_tasks.filter(task => task !== first_validation_task);
+    return task_name;
+  }
+  else if (remaining_tasks.length === 1) {
+    var task_name = remaining_tasks[0];
+    remaining_tasks = [];
+    return task_name;
   }
   else {
-    var index = Math.floor(Math.random() * remaining_tasks.length);
-    var task_name = remaining_tasks[index];
-    remaining_tasks.splice(index, 1); // Remove the item from the array
-    return task_name;
+    return undefined;
   }
 }
 
@@ -264,7 +276,7 @@ function start_validation_task() {
   clear_canvas();
   paradigm = get_validation_task();
 
-  if (paradigm == null) {
+  if (paradigm == "final") {
     lighten_canvas();
     show_webcam_debrief();
   }

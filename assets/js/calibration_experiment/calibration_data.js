@@ -83,9 +83,9 @@ function write_validation_data(task_type) {
  * Downloads data from this run of a complete experiment to a CSV file.
  */
 function download_csv() {
-  var condition_number = get_anonymized_condition_number(interaction, stimuli);
+  var condition_id = get_anonymized_condition_id();
   var time_stamp = new Date().getTime();
-  var file_name = "condition" + condition_number + "_" + time_stamp + ".csv";
+  var file_name = "condition" + condition_id + "_" + time_stamp + ".csv";
   var hiddenElement = document.createElement('a');
   hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
   hiddenElement.target = '_blank';
@@ -94,32 +94,40 @@ function download_csv() {
 }
 
 /**
- * Takes the ongoing experimental condition and returns a single number for the 
+ * Takes the ongoing experimental condition and returns an ID for the 
  * purpose of anonymizing the data file's name from participants.
- * @param  {str} interaction: Either 'watch', 'click', or 'placebo'
- * @param  {str} stimuli: Either 'static' or 'pursuit'
- * @return {str} A number from 1 to 6
+ * @return {str} A number from 1 to 6 with 'a' or 'b' appended
  */
-function get_anonymized_condition_number(interaction, stimuli) {
+function get_anonymized_condition_id() {
+  var id = "";
+
   if (interaction == "watch" && stimuli == "static") {
-    return "1";
+    id += "1";
   }
-  if (interaction == "click" && stimuli == "static") {
-    return "2";
+  else if (interaction == "click" && stimuli == "static") {
+    id += "2";
   }
-  if (interaction == "placebo" && stimuli == "static") {
-    return "3";
+  else if (interaction == "placebo" && stimuli == "static") {
+    id += "3";
   }
-  if (interaction == "watch" && stimuli == "pursuit") {
-    return "4";
+  else if (interaction == "watch" && stimuli == "pursuit") {
+    id += "4";
   }
-  if (interaction == "click" && stimuli == "pursuit") {
-    return "5";
+  else if (interaction == "click" && stimuli == "pursuit") {
+    id += "5";
   }
-  if (interaction == "placebo" && stimuli == "pursuit") {
-    return "6";
+  else if (interaction == "placebo" && stimuli == "pursuit") {
+    id += "6";
   }
-  return null;
+
+  if (first_validation_task == "static") {
+    id += "a";
+  }
+  else if (first_validation_task == "pursuit") {
+    id += "b"
+  }
+
+  return id;
 }
 
 /**
@@ -137,7 +145,7 @@ function save_webcam_frame() {
       // Context object for working with the canvas.
       context = original_canvas.getContext('2d');
 
-  console.log("video dimensions are " + width + " x " + height);
+  // console.log("video dimensions are " + width + " x " + height);
 
   // Set the canvas to the same dimensions as the video.
   original_canvas.width = width;
@@ -147,13 +155,20 @@ function save_webcam_frame() {
   context.drawImage(video_feed, 0, 0, width, height);
 
   var dataURL = original_canvas.toDataURL('image/png');
-
-  var time_stamp = new Date().getTime();
-  var file_name = "webcam_" + time_stamp + ".png";
-
   var hiddenElement = document.createElement('a');
   hiddenElement.href = dataURL;
   hiddenElement.target = '_blank';
-  hiddenElement.download = file_name;
+  hiddenElement.download = get_webcam_screenshot_name();
   hiddenElement.click();
+}
+
+/**
+ * Generates the name of the current webcam snapshot.
+ * @return {str} name of the .png file
+ */
+function get_webcam_screenshot_name() {
+  var condition_id = get_anonymized_condition_id();
+  var time_stamp = new Date().getTime();
+  var paradigm_id = paradigm[0]; // (calibration, static, pursuit, final)
+  return "webcam_" + condition_id + "_" + paradigm_id + "_" + time_stamp + ".png";
 }
