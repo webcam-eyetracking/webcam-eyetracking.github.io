@@ -161,8 +161,10 @@ function draw_new_moving_dot(context) {
     r: DEFAULT_DOT_RADIUS
   };
 
+  // TODO: On extremely low-performing systems, enforce an out-of-bounds check so dot never goes offscreen 
+
   if (distance(curr_object.cx, curr_object.cy, curr_object.tx, curr_object.ty) < dist_per_frame) {
-    start_calibration_task();
+    start_calibration_task(); // Dot will begin moving to a new location
   } 
   else {
     var canvas = document.getElementById("canvas-overlay");

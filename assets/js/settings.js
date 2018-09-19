@@ -11,7 +11,7 @@ var RoleArn = "arn:aws:iam::345518382834:role/Cognito_medusaUnauth_Role";
 const TABLE_NAME = "GAZE_DATA"; // name of data table of gaze data
 const USER_TABLE_NAME = "USERS"; // name of data table of users
 const DEFAULT_DOT_RADIUS = 20;
-const SAMPLING_RATE = 10; // number of calls to function once webgazer got data per second
+const SAMPLING_RATE = 5; // number of calls to function once webgazer got data per second
 const SHOW_HEATMAPS = false; // toggle for revealing heatmap feedback to participants
 
 /************************************

@@ -90,12 +90,12 @@ function create_consent_form() {
     '<header class="form__header">' +
     '<h2 class="form__title">Consent form</h2>' +
     "<div>" +
-    "<p class='information'><b>Why we are doing this research:</b> We are trying to examine the feasibility of using consumer-grade webcams to conduct eye-pursuit experiments to replace traditional eye-pursuit method.</p>" +
-    "<p class='information'><b>What you will have to do:</b> You will be presented with a series of tasks that involves looking at some dots and data visualizations .</p>" +
-    "<p class='information'><b>Privacy and Data collection:</b> We will not ask you for your name. We will not store any videos or images from the webcam. The only data from your webcam that we are collecting is predicted coordinates of your gaze made by webgazer. All data will be stored in a secure server.</p>" +
+    "<p class='information'><b>Why we are doing this research:</b> We are examining the feasibility of using consumer-grade webcams to conduct eye-tracking experiments to replace traditional methods, such as infrared technology.</p>" +
+    "<p class='information'><b>What you will have to do:</b> You will be presented with a series of tasks that involve viewing dots on your screen, occasionally interacting with them when instructed.</p>" +
+    "<p class='information'><b>Privacy and data collection:</b> We will not collect your name. Throughout the experiment, several snapshots from your webcam will be saved securely. These will be viewable only by the research team for the sake of analyzing how factors like lighting affect the reliability of our predictive eye-tracking software.</p>" +
     "<p class='information'><b>Duration:</b> Approximately 10 minutes.</p>" +
-    "<p class='information'><b>Taking part is voluntary:</b> You are free to leave the experiment at any time. If you refuse to be in the experiment or stop participating, there will no penalty or loss of benefits to which you are otherwise entitled.</p>" +
-    "<p class='information'><b>If you have questions:</b> You may contact Professor Evan Peck at <a href='mailto:evan.peck@bucknell.edu'>evan.peck@bucknell.edu</a>. If you have questions about your rights as a research participant, please contact Matthew Slater, Bucknell University's IRB Chair at 570.577.2767 or at <a href='mailto:matthew.slater@bucknell.edu'>matthew.slater@bucknell.edu</a></p>" +
+    "<p class='information'><b>Taking part is voluntary:</b> You are free to leave the experiment at any time. If you refuse to be in the experiment or stop participating, there will be no penalty or loss of benefits to which you are otherwise entitled.</p>" +
+    "<p class='information'><b>If you have questions:</b> You may contact Professor Evan Peck at <a href='mailto:evan.peck@bucknell.edu'>evan.peck@bucknell.edu</a>. If you have questions about your rights as a research participant, please contact Matthew Slater, Bucknell University's IRB Chair, at 570.577.2767 or at <a href='mailto:matthew.slater@bucknell.edu'>matthew.slater@bucknell.edu</a>.</p>" +
     "</div>" +
     "</header>" +
     "<form>" +
@@ -480,10 +480,16 @@ function create_webcam_instruction_glasses() {
 }
 
 function create_webcam_instruction_uneven() {
+  // create_general_instruction(
+  //   "Lighting conditions",
+  //   "Secondly, lighting conditions. This is rather tricky, but the main idea is that you should make sure that you have even lighting across your face. Ideally, the light source should be behind or in front you.",
+  //   "create_webcam_instruction_bookstack(); delete_elem('guide-img');",
+  //   "Next"
+  // );
   create_general_instruction(
     "Lighting conditions",
     "Secondly, lighting conditions. This is rather tricky, but the main idea is that you should make sure that you have even lighting across your face. Ideally, the light source should be behind or in front you.",
-    "create_webcam_instruction_bookstack(); delete_elem('guide-img');",
+    "create_webcam_instruction_reset(); delete_elem('guide-img');",
     "Next"
   );
   var guide = new Image();
