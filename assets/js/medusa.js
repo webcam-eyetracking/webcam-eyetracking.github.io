@@ -91,10 +91,13 @@ function create_consent_form() {
     '<h2 class="form__title">Consent form</h2>' +
     "<div>" +
     "<p class='information'><b>Why we are doing this research:</b> We are examining the feasibility of using consumer-grade webcams to conduct eye-tracking experiments to replace traditional methods, such as infrared technology.</p>" +
-    "<p class='information'><b>What you will have to do:</b> You will be presented with a series of tasks that involve viewing dots on your screen, occasionally interacting with them when instructed.</p>" +
-    "<p class='information'><b>Privacy and data collection:</b> We will not collect your name. Throughout the experiment, several snapshots from your webcam will be saved securely. These will be viewable only by the research team for the sake of analyzing how factors like lighting affect the reliability of our predictive eye-tracking software.</p>" +
+    "<p class='information'><b>What you will have to do:</b> You will be presented with a series of tasks that involve looking at and interacting with dots on the screen.</p>" +
+    "<p class='information'><b>Privacy and data collection:</b> All data is stored on a secure server which only the research team has access to. " + 
+    "<br>• Periodically during this experiment, we will use your webcam to take an image in order to understand the impact of environmental factors on gaze prediction. Your image will always be kept private and never shared." +
+    "<br>• The streaming images captured by your webcam are <b>not</b> stored. These images are used only to predict the location of your gaze. Those predictions are stored on a secure server, but <i>not</i> the images themselves." +
+    "</p>" +
     "<p class='information'><b>Duration:</b> Approximately 10 minutes.</p>" +
-    "<p class='information'><b>Taking part is voluntary:</b> You are free to leave the experiment at any time. If you refuse to be in the experiment or stop participating, there will be no penalty or loss of benefits to which you are otherwise entitled.</p>" +
+    "<p class='information'><b>Taking part is voluntary:</b> You are free to leave the experiment at any time. If you refuse to be in the experiment or stop participating, there will no penalty or loss of benefits to which you are otherwise entitled.</p>" +
     "<p class='information'><b>If you have questions:</b> You may contact Professor Evan Peck at <a href='mailto:evan.peck@bucknell.edu'>evan.peck@bucknell.edu</a>. If you have questions about your rights as a research participant, please contact Matthew Slater, Bucknell University's IRB Chair, at 570.577.2767 or at <a href='mailto:matthew.slater@bucknell.edu'>matthew.slater@bucknell.edu</a>.</p>" +
     "</div>" +
     "</header>" +
@@ -354,8 +357,6 @@ function create_experiment_instruction() {
     var instruction_guide1 =
       "For nearly half of your experiment, we'll be training your computer to guess where you're looking (and we'll show you what we think along the way!). We'll end the experiment by having you look at charts, graphs, and infographics to help us understand the way you process information.";
     var instruction_guide2 =
-      "We know focusing on the screen for a long time is tiring to the eyes, so there will be break in between sections.";
-    var instruction_guide3 =
       "Before we start, there are few tips we want to share with you to help you progress through the experiment faster.";
     delete_elem("consent_form");
     instruction.id = "instruction";
@@ -369,9 +370,6 @@ function create_experiment_instruction() {
       "<p>" +
       '<p class="information">' +
       instruction_guide2 +
-      "<p>" +
-      '<p class="information">' +
-      instruction_guide3 +
       "<p>" +
       "</header>" +
       '<button class="form__button" type="button" onclick="create_webcam_instruction_perfect()">Start</button>';
