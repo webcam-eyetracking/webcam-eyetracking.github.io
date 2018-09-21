@@ -102,21 +102,17 @@ function create_consent_form() {
     "</div>" +
     "</header>" +
     "<form>" +
-    '<fieldset class="form__options">' +
-    '<p class="form__answer">' +
-    '<input name="consent" type="radio" id="consent-yes" value="yes">' +
-    "<label class='form__label' for=\"consent-yes\"> I have read the above information, and have received answers to any questions I asked. </br>" +
-    "I affirm that I am at least 18 years old. <br>" +
-    "I consent to take part in the study." +
-    "</label>" +
-    "</p>" +
-    '<p class="form__answer">' +
-    '<input name="consent" type="radio" id="consent-no" value="no">' +
-    "<label class='form__label' for=\"consent-no\"> I decide not to take part in the study. <br> <br> <br> <br> </label>" +
-    "</p>" +
-    "</fieldset>" +
+
+    // Yes button
+    '<button class="consent__button" type="button" onclick="consent_form_navigation(\'yes\')">' +
+    'I have read the above information, and have received answers to any questions I asked. I affirm that I am at least 18 years old. I consent to take part in the study.' +
+    '</button>' +
+    // No button
+    '<button class="consent__button" type="button" onclick="consent_form_navigation(\'no\')">' +
+    'I decide not to take part in the study.' +
+    '</button>' +
+
     "<p class='information' id='webcam-info' style='color: red'></p>" +
-    '<button class="form__button" type="button" onclick="consent_form_navigation()">Next</button>' +
     "</form>";
   form.style.zIndex = 11;
   document.body.appendChild(form);
@@ -139,16 +135,12 @@ function create_consent_form() {
   }
 }
 
-function consent_form_navigation() {
+function consent_form_navigation(answer) {
   if (isChrome === true) {
-    if ($("#consent-yes").is(":checked")) {
+    if (answer == 'yes') {
       load_webgazer();
-    } else if ($("#consent-no").is(":checked")) {
-      window.location.href = "../../index.html";
     } else {
-      document.getElementById("webcam-info").innerHTML = "";
-      document.getElementById("webcam-info").innerHTML +=
-        "Please select one of the two options given.";
+      window.location.href = "../../index.html";
     }
   }
 }
@@ -354,10 +346,8 @@ function create_experiment_instruction() {
   // send_gaze_data_to_database();
   if ($("#consent-yes").is(":checked")) {
     var instruction = document.createElement("div");
-    var instruction_guide1 =
-      "For nearly half of your experiment, we'll be training your computer to guess where you're looking (and we'll show you what we think along the way!). We'll end the experiment by having you look at charts, graphs, and infographics to help us understand the way you process information.";
     var instruction_guide2 =
-      "Before we start, there are few tips we want to share with you to help you progress through the experiment faster.";
+      "Before we start, there are a few tips we want to share with you to help you progress through the experiment faster.";
     delete_elem("consent_form");
     instruction.id = "instruction";
     instruction.className += "overlay-div";
@@ -365,9 +355,6 @@ function create_experiment_instruction() {
     instruction.innerHTML +=
       '<header class="form__header">' +
       '<h2 class="form__title">Thank you for participating.</br></h2>' +
-      '<p class="information">' +
-      instruction_guide1 +
-      "<p>" +
       '<p class="information">' +
       instruction_guide2 +
       "<p>" +
@@ -486,7 +473,7 @@ function create_webcam_instruction_uneven() {
   // );
   create_general_instruction(
     "Lighting conditions",
-    "Secondly, lighting conditions. This is rather tricky, but the main idea is that you should make sure that you have even lighting across your face. Ideally, the light source should be behind or in front you.",
+    "Secondly, lighting conditions. This is rather tricky, but the main idea is that you should make sure that you have even lighting across your face. Ideally, the light source should be behind or in front of you.",
     "create_webcam_instruction_reset(); delete_elem('guide-img');",
     "Next"
   );

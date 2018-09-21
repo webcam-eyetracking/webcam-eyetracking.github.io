@@ -200,6 +200,30 @@ label:active {
   font-size: 30px;
 }
 
+.consent__button {
+  width: 45%;
+  height: auto;
+  border: none;
+  color: white;
+  background-color: var(--submit-color);
+  font-family: "Source Sans Pro", sans-serif;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px 10px 0 0;
+  transition: all 0.25s ease-in-out;
+  font-size: 1.1em;
+  padding: 1em;
+  text-align: center;
+  text-decoration: none;
+}
+
+.consent__button:hover,
+.consent__button:focus {
+  background-color: var(--submit-color-darker);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+  outline: none;
+}
+
 /* Input style */
 
 .file__button {
