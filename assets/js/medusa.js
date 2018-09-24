@@ -96,7 +96,7 @@ function create_consent_form() {
     "<br>• Periodically during this experiment, we will use your webcam to take an image in order to understand the impact of environmental factors on gaze prediction. Your image will always be kept private and never shared." +
     "<br>• The streaming images captured by your webcam are <b>not</b> stored. These images are used only to predict the location of your gaze. Those predictions are stored on a secure server, but <i>not</i> the images themselves." +
     "</p>" +
-    "<p class='information'><b>Duration:</b> Approximately 10 minutes.</p>" +
+    "<p class='information'><b>Duration:</b> Approximately 30 minutes.</p>" +
     "<p class='information'><b>Taking part is voluntary:</b> You are free to leave the experiment at any time. If you refuse to be in the experiment or stop participating, there will no penalty or loss of benefits to which you are otherwise entitled.</p>" +
     "<p class='information'><b>If you have questions:</b> You may contact Professor Evan Peck at <a href='mailto:evan.peck@bucknell.edu'>evan.peck@bucknell.edu</a>. If you have questions about your rights as a research participant, please contact Matthew Slater, Bucknell University's IRB Chair, at 570.577.2767 or at <a href='mailto:matthew.slater@bucknell.edu'>matthew.slater@bucknell.edu</a>.</p>" +
     "</div>" +
@@ -187,7 +187,7 @@ function initiate_webgazer() {
         elapsedTime - webgazer_time_stamp > 1000 / SAMPLING_RATE &&
         current_task === "calibration"
       ) {
-        webgazer.recordScreenPosition(curr_object.x, curr_object.y);
+        webgazer.recordScreenPosition(curr_object.cx, curr_object.cy);
       }
 
       // collect data from webgazer
@@ -199,8 +199,15 @@ function initiate_webgazer() {
       } else if (current_task === "bonus") {
         loop_bonus_round();
       } else {
-        store_data.object_x.push(curr_object.x);
-        store_data.object_y.push(curr_object.y);
+        // Grab the most up-to-date coordinates if they're available (non-static tasks)
+        if (!curr_object.cx) {
+          store_data.object_x.push(curr_object.x);
+          store_data.object_y.push(curr_object.y);
+        }
+        else {
+          store_data.object_x.push(curr_object.cx);
+          store_data.object_y.push(curr_object.cy);
+        }
       }
       store_data.gaze_x.push(data.x);
       store_data.gaze_y.push(data.y);

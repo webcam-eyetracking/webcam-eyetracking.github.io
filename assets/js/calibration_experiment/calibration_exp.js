@@ -177,12 +177,12 @@ function collect_training_data() {
   else if (interaction == "watch") {
     store_data.description = (num_objects_shown + 1).toString();
     // send_gaze_data_to_database();
-    webgazer.recordScreenPosition(curr_object.x, curr_object.y);
+    webgazer.recordScreenPosition(curr_object.cx, curr_object.cy);
   }
   else if (interaction == "placebo") {
     store_data.description = (num_objects_shown + 1).toString();
     // send_gaze_data_to_database();
-    webgazer.recordScreenPosition(curr_object.x, curr_object.y);
+    webgazer.recordScreenPosition(curr_object.cx, curr_object.cy);
 
     // Clicks aren't recorded as data, but still register to advance the experiment
     $("#canvas-overlay").unbind("click").click(function (e) {
