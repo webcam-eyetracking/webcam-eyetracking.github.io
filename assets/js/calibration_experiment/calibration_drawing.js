@@ -124,10 +124,10 @@ function draw_pursuit_dot_calibration(context) {
     calibration_settings.num_trials, num_objects_shown);
 
   // Set timeout so newly rendered dots pause before immediately moving
-  if (interaction == "watch") {
+  if (interaction === "watch") {
     pursuit_watch_pause(context);
   }
-  if (interaction == "click" || interaction === "placebo") {
+  if (interaction === "click" || interaction === "placebo") {
     pursuit_click_pause(context);
   }
 }
@@ -136,7 +136,7 @@ function draw_pursuit_dot_calibration(context) {
  * Draws a calibration dot designed for the pursuit paradigm.
  * @param {*} context - The 2D rendering context for the HTML5 canvas
  */
-function draw_new_moving_dot(context) {
+function draw_new_moving_dot() {
   var now = new Date().getTime(),
     dt = now - (time_stamp || now);
   time_stamp = now;
@@ -161,9 +161,7 @@ function draw_new_moving_dot(context) {
     r: DEFAULT_DOT_RADIUS
   };
 
-  // TODO: On extremely low-performing systems, enforce an out-of-bounds check so dot never goes offscreen 
-
-  if (distance(curr_object.cx, curr_object.cy, curr_object.tx, curr_object.ty) < dist_per_frame) {
+  if (!validate_pursuit_loc()) {
     start_calibration_task(); // Dot will begin moving to a new location
   } 
   else {
@@ -191,15 +189,11 @@ function pursuit_watch_pause(context) {
  */
 function pursuit_click_pause(context) {
   request_anim_frame(function() {
-    // Multiple clicks during a single trial should be disregarded
-    if (num_clicks_on_dot > 1) {
+    collect_clicks = true;
+    if (num_clicks_on_dot != 0 || num_objects_shown == 1) {
       num_clicks_on_dot = 0;
-    }
-
-    if (num_objects_shown == 1 || num_clicks_on_dot == 1) {
       time_stamp = null;
-      num_clicks_on_dot = 0;
-
+      collect_clicks = false; // Disregard multiple clicks in succession
       if (num_objects_shown === calibration_settings.num_trials + 1) {
         finish_pursuit_round();
       } 
@@ -225,4 +219,20 @@ function finish_pursuit_round() {
   if (calibration_current_round > calibration_settings.num_rounds) {
     finish_calibration();
   }
+}
+
+/**
+ * Checks the destination position for the current object and returns false if
+ * the dot is out of bounds and should move to its next location.
+ */
+function validate_pursuit_loc() {
+  var x = curr_object.cx;
+  var y = curr_object.cy;
+
+  return (
+    x >= LEFT_EDGE_POS * $(window).width() && 
+    x <= RIGHT_EDGE_POS * $(window).width() &&
+    y >= TOP_EDGE_POS * $(window).height() &&
+    y <= BOTTOM_EDGE_POS * $(window).height()
+  );
 }

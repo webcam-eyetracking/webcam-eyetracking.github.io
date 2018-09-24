@@ -20,10 +20,11 @@ const GOOGLE_FORM_URL = 'https://goo.gl/forms/4ZCvosWghOFnfznH3';
 // Conditions
 var interaction; // either "click", "watch", or "placebo" [placebo click]
 var stimuli; // either "static" or "pursuit"
-var first_validation_task; // either "static" or "pursuit" 
+var first_validation_task; // either "static" or "pursuit"
 
 // Validation tasks
 var remaining_tasks;
+var collect_clicks = true;
 
 /**
  * Launch an experiment that asks the user to first calibrate, then validate 
@@ -167,7 +168,7 @@ function collect_training_data() {
     $("#canvas-overlay").unbind("click").click(function (e) {
       var x = e.clientX;
       var y = e.clientY;
-      if (Math.pow(x - curr_object.x, 2) + Math.pow(y - curr_object.y, 2) < Math.pow(DEFAULT_DOT_RADIUS, 2)) {
+      if (Math.pow(x - curr_object.x, 2) + Math.pow(y - curr_object.y, 2) < Math.pow(DEFAULT_DOT_RADIUS, 2) && collect_clicks) {
         num_clicks_on_dot++;
         webgazer.recordScreenPosition(curr_object.x, curr_object.y);
       }
@@ -177,18 +178,17 @@ function collect_training_data() {
     store_data.description = (num_objects_shown + 1).toString();
     // send_gaze_data_to_database();
     webgazer.recordScreenPosition(curr_object.x, curr_object.y);
-    time_stamp = new Date().getTime();
   }
   else if (interaction == "placebo") {
     store_data.description = (num_objects_shown + 1).toString();
     // send_gaze_data_to_database();
     webgazer.recordScreenPosition(curr_object.x, curr_object.y);
-    time_stamp = new Date().getTime();
+
     // Clicks aren't recorded as data, but still register to advance the experiment
     $("#canvas-overlay").unbind("click").click(function (e) {
       var x = e.clientX;
       var y = e.clientY;
-      if (Math.pow(x - curr_object.x, 2) + Math.pow(y - curr_object.y, 2) < Math.pow(DEFAULT_DOT_RADIUS, 2)) {
+      if (Math.pow(x - curr_object.x, 2) + Math.pow(y - curr_object.y, 2) < Math.pow(DEFAULT_DOT_RADIUS, 2) && collect_clicks) {
         num_clicks_on_dot++;
       }
     });

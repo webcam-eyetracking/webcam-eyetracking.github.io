@@ -6,6 +6,8 @@
   --submit-color-darker: #f2849e;
   --bg-color: #f5f5f5;
   --border-color: #f7b2c2;
+  --consent-yes-color: #519405;
+  --consent-no-color: #b13c3c;
 }
 
 html,
@@ -133,29 +135,6 @@ label:active {
   border: 1px solid rgba(88, 88, 88, 0.75);
 }
 
-/*.form__button {
-  height: 3.5em;
-  border: none;
-  color: white;
-  background-color: var(--submit-color);
-  text-transform: uppercase;
-  font-family: "Source Sans Pro", sans-serif;
-  border-radius: 4px;
-  font-weight: 900;
-  cursor: pointer;
-  margin: 30px 30px 0 0;
-  transition: all 0.25s ease-in-out;
-  font-size: 0.8em;
-  letter-spacing: 0.35em;
-  line-height: 3.45em;
-  overflow: hidden;
-  padding: 0 1.25em 0 1.6em;
-  text-align: center;
-  text-decoration: none;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}*/
-
 .form__button {
   height: 3em;
   border: none;
@@ -201,7 +180,7 @@ label:active {
 }
 
 .consent__button {
-  width: 45%;
+  width: 48%;
   height: auto;
   border: none;
   color: white;
@@ -217,9 +196,16 @@ label:active {
   text-decoration: none;
 }
 
-.consent__button:hover,
-.consent__button:focus {
-  background-color: var(--submit-color-darker);
+#consent-yes:hover,
+#consent-yes:focus {
+  background-color: var(--consent-yes-color);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+  outline: none;
+}
+
+#consent-no:hover,
+#consent-no:focus {
+  background-color: var(--consent-no-color);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
   outline: none;
 }

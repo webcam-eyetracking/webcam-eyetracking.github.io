@@ -547,9 +547,8 @@ function draw_moving_dot(context, dot) {
     r: DEFAULT_DOT_RADIUS
   };
 
-  if (distance(curr_object.cx, curr_object.cy, curr_object.tx, curr_object.ty) < 40) {
-    loop_pursuit_paradigm();
-    return;
+  if (!validate_pursuit_loc()) {
+    loop_pursuit_paradigm(); // Dot will begin moving to a new location
   } 
   else {
     var canvas = document.getElementById("canvas-overlay");

@@ -29,9 +29,9 @@ var FONT_FAMILY = "20px Source Sans Pro";
  ************************************/
  // (As ratios of screen width and height)
  var LEFT_EDGE_POS = 0.035;
- var TOP_EDGE_POS = 0.035;
+ var TOP_EDGE_POS = 0.05;
  var RIGHT_EDGE_POS = 0.965;
- var BOTTOM_EDGE_POS = 0.965;
+ var BOTTOM_EDGE_POS = 0.95;
  var CENTER_POS = 0.5;
 
 /************************************
@@ -90,89 +90,90 @@ var simple_paradigm_settings = {
  * PURSUIT PARADIGM PARAMETERS
  ************************************/
 var pursuit_paradigm_settings = {
-  position_array: [{
-      x: 0.2,
-      y: 0.2,
-      tx: 0.8,
-      ty: 0.2
+  position_array: [
+    {
+      x: LEFT_EDGE_POS,
+      y: TOP_EDGE_POS,
+      tx: RIGHT_EDGE_POS,
+      ty: TOP_EDGE_POS
     },
     {
-      x: 0.8,
-      y: 0.2,
-      tx: 0.2,
-      ty: 0.2
+      x: RIGHT_EDGE_POS,
+      y: TOP_EDGE_POS,
+      tx: LEFT_EDGE_POS,
+      ty: TOP_EDGE_POS
     },
     {
-      x: 0.2,
-      y: 0.2,
-      tx: 0.2,
-      ty: 0.8
+      x: LEFT_EDGE_POS,
+      y: TOP_EDGE_POS,
+      tx: LEFT_EDGE_POS,
+      ty: BOTTOM_EDGE_POS
     },
     {
-      x: 0.2,
-      y: 0.8,
-      tx: 0.2,
-      ty: 0.2
+      x: LEFT_EDGE_POS,
+      y: BOTTOM_EDGE_POS,
+      tx: LEFT_EDGE_POS,
+      ty: TOP_EDGE_POS
     },
     {
-      x: 0.2,
-      y: 0.2,
-      tx: 0.8,
-      ty: 0.8
+      x: LEFT_EDGE_POS,
+      y: TOP_EDGE_POS,
+      tx: RIGHT_EDGE_POS,
+      ty: BOTTOM_EDGE_POS
     },
     {
-      x: 0.8,
-      y: 0.8,
-      tx: 0.2,
-      ty: 0.8
+      x: RIGHT_EDGE_POS,
+      y: BOTTOM_EDGE_POS,
+      tx: LEFT_EDGE_POS,
+      ty: BOTTOM_EDGE_POS
     },
     {
-      x: 0.2,
-      y: 0.8,
-      tx: 0.8,
-      ty: 0.2
+      x: LEFT_EDGE_POS,
+      y: BOTTOM_EDGE_POS,
+      tx: RIGHT_EDGE_POS,
+      ty: TOP_EDGE_POS
     },
     {
-      x: 0.8,
-      y: 0.2,
-      tx: 0.2,
-      ty: 0.8
+      x: RIGHT_EDGE_POS,
+      y: TOP_EDGE_POS,
+      tx: LEFT_EDGE_POS,
+      ty: BOTTOM_EDGE_POS
     },
     {
-      x: 0.2,
-      y: 0.8,
-      tx: 0.8,
-      ty: 0.8
+      x: LEFT_EDGE_POS,
+      y: BOTTOM_EDGE_POS,
+      tx: RIGHT_EDGE_POS,
+      ty: BOTTOM_EDGE_POS
     },
     {
-      x: 0.8,
-      y: 0.8,
-      tx: 0.8,
-      ty: 0.2
+      x: RIGHT_EDGE_POS,
+      y: BOTTOM_EDGE_POS,
+      tx: RIGHT_EDGE_POS,
+      ty: TOP_EDGE_POS
     },
     {
-      x: 0.8,
-      y: 0.2,
-      tx: 0.8,
-      ty: 0.8
+      x: RIGHT_EDGE_POS,
+      y: TOP_EDGE_POS,
+      tx: RIGHT_EDGE_POS,
+      ty: BOTTOM_EDGE_POS
     },
     {
-      x: 0.8,
-      y: 0.8,
-      tx: 0.2,
-      ty: 0.8
+      x: RIGHT_EDGE_POS,
+      y: BOTTOM_EDGE_POS,
+      tx: LEFT_EDGE_POS,
+      ty: BOTTOM_EDGE_POS
     },
     {
-      x: 0.2,
-      y: 0.8,
-      tx: 0.2,
-      ty: 0.2
+      x: LEFT_EDGE_POS,
+      y: BOTTOM_EDGE_POS,
+      tx: LEFT_EDGE_POS,
+      ty: TOP_EDGE_POS
     },
     {
-      x: 0.2,
-      y: 0.2,
-      tx: 0.8,
-      ty: 0.2
+      x: LEFT_EDGE_POS,
+      y: TOP_EDGE_POS,
+      tx: RIGHT_EDGE_POS,
+      ty: TOP_EDGE_POS
     }
   ],
   num_trials: 14,

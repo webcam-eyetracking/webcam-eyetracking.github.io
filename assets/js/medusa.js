@@ -104,11 +104,11 @@ function create_consent_form() {
     "<form>" +
 
     // Yes button
-    '<button class="consent__button" type="button" onclick="consent_form_navigation(\'yes\')">' +
+    '<button class="consent__button" id="consent-yes" type="button" onclick="consent_form_navigation(\'yes\')">' +
     'I have read the above information, and have received answers to any questions I asked. I affirm that I am at least 18 years old. I consent to take part in the study.' +
     '</button>' +
     // No button
-    '<button class="consent__button" type="button" onclick="consent_form_navigation(\'no\')">' +
+    '<button class="consent__button" id="consent-no" type="button" onclick="consent_form_navigation(\'no\')">' +
     'I decide not to take part in the study.' +
     '</button>' +
 
@@ -344,25 +344,23 @@ function create_experiment_instruction() {
   store_data.task = "experiment";
   store_data.description = "begin";
   // send_gaze_data_to_database();
-  if ($("#consent-yes").is(":checked")) {
-    var instruction = document.createElement("div");
-    var instruction_guide2 =
-      "Before we start, there are a few tips we want to share with you to help you progress through the experiment faster.";
-    delete_elem("consent_form");
-    instruction.id = "instruction";
-    instruction.className += "overlay-div";
-    instruction.style.zIndex = 12;
-    instruction.innerHTML +=
-      '<header class="form__header">' +
-      '<h2 class="form__title">Thank you for participating.</br></h2>' +
-      '<p class="information">' +
-      instruction_guide2 +
-      "<p>" +
-      "</header>" +
-      '<button class="form__button" type="button" onclick="create_webcam_instruction_perfect()">Start</button>';
-    document.body.appendChild(instruction);
-    show_video_feed();
-  }
+  var instruction = document.createElement("div");
+  var instruction_guide2 =
+    "Before we start, there are a few tips we want to share with you to help you progress through the experiment faster.";
+  delete_elem("consent_form");
+  instruction.id = "instruction";
+  instruction.className += "overlay-div";
+  instruction.style.zIndex = 12;
+  instruction.innerHTML +=
+    '<header class="form__header">' +
+    '<h2 class="form__title">Thank you for participating.</br></h2>' +
+    '<p class="information">' +
+    instruction_guide2 +
+    "<p>" +
+    "</header>" +
+    '<button class="form__button" type="button" onclick="create_webcam_instruction_perfect()">Start</button>';
+  document.body.appendChild(instruction);
+  show_video_feed();
 }
 
 function create_general_instruction(
@@ -919,7 +917,7 @@ function loop_pursuit_paradigm() {
 
   setTimeout(function () {
     time_stamp = null;
-    draw_moving_dot(context, dot);
+    draw_moving_dot();
   }, pursuit_paradigm_settings.fixation_rest_time);
 }
 
