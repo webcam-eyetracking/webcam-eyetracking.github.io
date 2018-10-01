@@ -175,14 +175,14 @@ function collect_training_data() {
     });
   } 
   else if (interaction == "watch") {
-    store_data.description = (num_objects_shown + 1).toString();
     // send_gaze_data_to_database();
     webgazer.recordScreenPosition(curr_object.cx, curr_object.cy);
+    time_stamp = new Date().getTime();
   }
   else if (interaction == "placebo") {
-    store_data.description = (num_objects_shown + 1).toString();
     // send_gaze_data_to_database();
     webgazer.recordScreenPosition(curr_object.cx, curr_object.cy);
+    time_stamp = new Date().getTime();
 
     // Clicks aren't recorded as data, but still register to advance the experiment
     $("#canvas-overlay").unbind("click").click(function (e) {
@@ -268,7 +268,7 @@ function finish_calibration() {
 function start_validation_task() {
   // Save data if participant has already completed a validation task
   if (remaining_tasks.length < 2) {
-    console.log("writing data from task called " + paradigm);
+    console.log("writing data from " + paradigm + " task");
     write_validation_data(paradigm);
     save_webcam_frame(); // Save a snapshot after validation task.
   }
@@ -281,8 +281,6 @@ function start_validation_task() {
     show_webcam_debrief();
   }
   else {
-    heatmap_data_x = store_data.gaze_x.slice(0);
-    heatmap_data_y = store_data.gaze_y.slice(0);
     show_heatmap_text("navigate_tasks"); // from medusa.js
   }
 }

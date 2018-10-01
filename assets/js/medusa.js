@@ -5,16 +5,20 @@
 var gazer_id = ""; // id of user
 var session_time = ""; // time of current webgazer session
 var isChrome = true;
-// data variable. Used as a template for the type of data we send to the database. May add other attributes
+var NUM_DATA_ENTRIES = 10000; // for pre-populating arrays of data to increase performance
+
+// Data variable. Used as a template for the type of data we send to the database. May add other attributes
 var store_data = {
   task: "", // the current performing task
   description: "", // a description of the task. Depends on the type of task
-  elapsedTime: [], // time since webgazer.begin() is called
-  object_x: [], // x position of whatever object the current task is using
-  object_y: [], // y position of whatever object the current task is using
-  gaze_x: [], // x position of gaze
-  gaze_y: [] // y position of gaze
+  elapsedTime: new Array(NUM_DATA_ENTRIES), // time since webgazer.begin() is called
+  object_x: new Array(NUM_DATA_ENTRIES), // x position of whatever object the current task is using
+  object_y: new Array(NUM_DATA_ENTRIES), // y position of whatever object the current task is using
+  gaze_x: new Array(NUM_DATA_ENTRIES), // x position of gaze
+  gaze_y: new Array(NUM_DATA_ENTRIES) // y position of gaze
 };
+
+var curr_index = 0; // Marks the next entry to write to in the store_data array
 
 // store all of information of the users which we will send to the database
 var user = {
@@ -183,34 +187,35 @@ function initiate_webgazer() {
       if (collect_data === false) return;
 
       // add calibration point to model
-      if (
-        elapsedTime - webgazer_time_stamp > 1000 / SAMPLING_RATE &&
-        current_task === "calibration"
-      ) {
+      if (elapsedTime - webgazer_time_stamp > 1000 / SAMPLING_RATE &&
+          current_task === "calibration") {
         webgazer.recordScreenPosition(curr_object.cx, curr_object.cy);
       }
 
-      // collect data from webgazer
+      curr_index++; // increment the counter for entries
+
+      // Collect data from webgazer
       webgazer_time_stamp = elapsedTime;
-      store_data.elapsedTime.push(elapsedTime);
+      store_data.elapsedTime[curr_index] = elapsedTime;
+  
       if (current_task === "pursuit") {
-        store_data.object_x.push(curr_object.cx);
-        store_data.object_y.push(curr_object.cy);
+        store_data.object_x[curr_index] = curr_object.cx;
+        store_data.object_y[curr_index] = curr_object.cy;
       } else if (current_task === "bonus") {
         loop_bonus_round();
       } else {
         // Grab the most up-to-date coordinates if they're available (non-static tasks)
         if (!curr_object.cx) {
-          store_data.object_x.push(curr_object.x);
-          store_data.object_y.push(curr_object.y);
+          store_data.object_x[curr_index] = curr_object.x;
+          store_data.object_y[curr_index] = curr_object.y;
         }
         else {
-          store_data.object_x.push(curr_object.cx);
-          store_data.object_y.push(curr_object.cy);
+          store_data.object_x[curr_index] = curr_object.cx;
+          store_data.object_y[curr_index] = curr_object.cy;
         }
       }
-      store_data.gaze_x.push(data.x);
-      store_data.gaze_y.push(data.y);
+      store_data.gaze_x[curr_index] = data.x;
+      store_data.gaze_y[curr_index] = data.y;
     });
 
     // Allow Webgazer 1 second to initialize to avoid 'no stream' errors
@@ -771,8 +776,8 @@ function _finish_calibration() {
   webgazer.pause();
   collect_data = false;
   paradigm = "static";
-  heatmap_data_x = store_data.gaze_x.slice(0);
-  heatmap_data_y = store_data.gaze_y.slice(0);
+  // heatmap_data_x = store_data.gaze_x.slice(0);
+  // heatmap_data_y = store_data.gaze_y.slice(0);
   show_heatmap_text("navigate_tasks");
 }
 
@@ -824,7 +829,7 @@ function loop_simple_paradigm() {
   collect_data = true;
   webgazer.resume();
   clear_canvas();
-  current_task = "static_paradigm";
+  current_task = "static";
   darken_canvas();
 
   // Grab more dots if the number of trials exceeds the length of the position array
@@ -860,8 +865,8 @@ function finish_simple_paradigm() {
   store_data.description = "success";
   webgazer.pause();
   collect_data = false;
-  heatmap_data_x = store_data.gaze_x.slice(0);
-  heatmap_data_y = store_data.gaze_y.slice(0);
+  // heatmap_data_x = store_data.gaze_x.slice(0);
+  // heatmap_data_y = store_data.gaze_y.slice(0);
   // send_gaze_data_to_database();
   start_validation_task(); // Return to start_validation_task in calibration_exp.js
 }
@@ -894,7 +899,7 @@ function loop_pursuit_paradigm() {
   var context = canvas.getContext("2d");
   collect_data = true;
   webgazer.resume();
-  current_task = "pursuit_paradigm";
+  current_task = "pursuit";
 
   if (objects_array.length === 0) {
     var temp = {arr: pursuit_paradigm_settings.position_array};
@@ -936,8 +941,8 @@ function finish_pursuit_paradigm() {
   current_task = "pursuit_end";
   webgazer.pause();
   collect_data = false;
-  heatmap_data_x = store_data.gaze_x.slice(0);
-  heatmap_data_y = store_data.gaze_y.slice(0);
+  // heatmap_data_x = store_data.gaze_x.slice(0);
+  // heatmap_data_y = store_data.gaze_y.slice(0);
   // send_gaze_data_to_database();
   start_validation_task(); // Return to start_validation_task in calibration_exp.js
 }
@@ -1004,8 +1009,8 @@ function show_massvis_image() {
   setTimeout(function () {
     store_data.task = "massvis";
     paradigm = "massvis";
-    heatmap_data_x = store_data.gaze_x.slice(0);
-    heatmap_data_y = store_data.gaze_y.slice(0);
+    // heatmap_data_x = store_data.gaze_x.slice(0);
+    // heatmap_data_y = store_data.gaze_y.slice(0);
     session_time = new Date().getTime().toString();
     // send_gaze_data_to_database();
     reset_store_data(show_heatmap_text("loop_massvis_paradigm"));

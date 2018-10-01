@@ -83,8 +83,6 @@ function finish_static_trial() {
   if (num_objects_shown === calibration_settings.num_trials) {
     calibration_current_round++;
     num_objects_shown = 0;
-    heatmap_data_x = store_data.gaze_x.slice(0);
-    heatmap_data_y = store_data.gaze_y.slice(0);
 
     // Check if we've finished all calibration rounds.
     if (calibration_current_round > calibration_settings.num_rounds) {
@@ -214,6 +212,7 @@ function pursuit_click_pause(context) {
 function finish_pursuit_round() {
   calibration_current_round++;
   num_objects_shown = 0;
+  collect_clicks = true;
 
   // Check if we've finished all calibration rounds
   if (calibration_current_round > calibration_settings.num_rounds) {

@@ -104,7 +104,7 @@ function draw_heatmap(function_name) {
     heat.draw();
   }
 
-  if (current_task === "static_paradigm") {
+  if (current_task === "static") {
     for (i = 0; i < simple_paradigm_settings.position_array.length; i++) {
       var midX = simple_paradigm_settings.position_array[i][0] * canvas.width;
       var midY =

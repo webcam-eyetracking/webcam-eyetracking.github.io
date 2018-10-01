@@ -173,6 +173,7 @@ function hide_canvas_overlay() {
 
 function show_heatmap_instruction(function_name) {
   webgazer.pause();
+  collect_data = false;
   heatmap_data_x = store_data.gaze_x.slice(0);
   heatmap_data_y = store_data.gaze_y.slice(0);
   $("#heatmap_instruction").show();
@@ -286,148 +287,149 @@ function create_dot_array(pos_array, randomize) {
  * Reset the store_data variable.
  */
 function reset_store_data(callback) {
-  store_data = {
+  curr_index = 0;
+  var store_data = {
     task: "", // the current performing task
     description: "", // a description of the task. Depends on the type of task
-    elapsedTime: [], // time since webgazer.begin() is called
-    object_x: [], // x position of whatever object the current task is using
-    object_y: [], // y position of whatever object the current task is using
-    gaze_x: [], // x position of gaze
-    gaze_y: [] // y position of gaze
+    elapsedTime: new Array(NUM_DATA_ENTRIES), // time since webgazer.begin() is called
+    object_x: new Array(NUM_DATA_ENTRIES), // x position of whatever object the current task is using
+    object_y: new Array(NUM_DATA_ENTRIES), // y position of whatever object the current task is using
+    gaze_x: new Array(NUM_DATA_ENTRIES), // x position of gaze
+    gaze_y: new Array(NUM_DATA_ENTRIES) // y position of gaze
   };
   if (callback !== undefined) callback();
 }
 
-/**
- * Send gaze data to database and then clear out the store_data variable. 
- * Called after each step.
- */
-function send_gaze_data_to_database(callback) {
-  var canvas = document.getElementById("canvas-overlay");
-  var context = canvas.getContext("2d");
+// /**
+//  * Send gaze data to database and then clear out the store_data variable. 
+//  * Called after each step.
+//  */
+// function send_gaze_data_to_database(callback) {
+//   var canvas = document.getElementById("canvas-overlay");
+//   var context = canvas.getContext("2d");
 
-  var temp_store_data = {
-    task: "", // the current performing task
-    url: "", // url of website
-    canvasWidth: "", // the width of the canvas
-    canvasHeight: "", // the height of the canvas
-    description: "", // a description of the task. Depends on the type of task
-    elapsedTime: [], // time since webgazer.begin() is called
-    object_x: [], // x position of whatever object the current task is using
-    object_y: [], // y position of whatever object the current task is using
-    gaze_x: [], // x position of gaze
-    gaze_y: [] // y position of gaze
-  };
+//   var temp_store_data = {
+//     task: "", // the current performing task
+//     url: "", // url of website
+//     canvasWidth: "", // the width of the canvas
+//     canvasHeight: "", // the height of the canvas
+//     description: "", // a description of the task. Depends on the type of task
+//     elapsedTime: [], // time since webgazer.begin() is called
+//     object_x: [], // x position of whatever object the current task is using
+//     object_y: [], // y position of whatever object the current task is using
+//     gaze_x: [], // x position of gaze
+//     gaze_y: [] // y position of gaze
+//   };
 
-  temp_store_data.url = window.location.href;
-  temp_store_data.canvasHeight = canvas.height;
-  temp_store_data.canvasWidth = canvas.width;
-  temp_store_data.task = store_data.task;
-  temp_store_data.description = store_data.description;
+//   temp_store_data.url = window.location.href;
+//   temp_store_data.canvasHeight = canvas.height;
+//   temp_store_data.canvasWidth = canvas.width;
+//   temp_store_data.task = store_data.task;
+//   temp_store_data.description = store_data.description;
 
-  if (current_task === "calibration") {
-    temp_store_data.gaze_x = [0];
-    temp_store_data.gaze_y = [0];
-    temp_store_data.object_x = [0];
-    temp_store_data.object_y = [0];
-    temp_store_data.elapsedTime = [0];
-  } else {
-    temp_store_data.gaze_x = store_data.gaze_x;
-    temp_store_data.gaze_y = store_data.gaze_y;
-    temp_store_data.object_x = store_data.object_x;
-    temp_store_data.object_y = store_data.object_y;
-    temp_store_data.elapsedTime = store_data.elapsedTime;
-  }
+//   if (current_task === "calibration") {
+//     temp_store_data.gaze_x = [0];
+//     temp_store_data.gaze_y = [0];
+//     temp_store_data.object_x = [0];
+//     temp_store_data.object_y = [0];
+//     temp_store_data.elapsedTime = [0];
+//   } else {
+//     temp_store_data.gaze_x = store_data.gaze_x;
+//     temp_store_data.gaze_y = store_data.gaze_y;
+//     temp_store_data.object_x = store_data.object_x;
+//     temp_store_data.object_y = store_data.object_y;
+//     temp_store_data.elapsedTime = store_data.elapsedTime;
+//   }
 
-  var params = {
-    TableName: TABLE_NAME,
-    Item: {
-      gazer_id: gazer_id,
-      time_collected: session_time,
-      info: temp_store_data
-    }
-  };
+//   var params = {
+//     TableName: TABLE_NAME,
+//     Item: {
+//       gazer_id: gazer_id,
+//       time_collected: session_time,
+//       info: temp_store_data
+//     }
+//   };
 
-  docClient.put(params, function (err, data) {
-    if (err) {
-      console.log(
-        "Unable to add item: " + "\n" + JSON.stringify(err, undefined, 2)
-      );
-    } else {
-      // console.log(
-      //   "PutItem succeeded: " + "\n" + JSON.stringify(data, undefined, 2)
-      // );
-      callback;
-    }
-  });
-}
+//   docClient.put(params, function (err, data) {
+//     if (err) {
+//       console.log(
+//         "Unable to add item: " + "\n" + JSON.stringify(err, undefined, 2)
+//       );
+//     } else {
+//       // console.log(
+//       //   "PutItem succeeded: " + "\n" + JSON.stringify(data, undefined, 2)
+//       // );
+//       callback;
+//     }
+//   });
+// }
 
-/**
- * Sends user data to the database. Only called at the end of the experiment.
- */
-function send_user_data_to_database(callback) {
-  session_time = new Date().getTime().toString();
-  var empty_count = 0;
+// /**
+//  * Sends user data to the database. Only called at the end of the experiment.
+//  */
+// function send_user_data_to_database(callback) {
+//   session_time = new Date().getTime().toString();
+//   var empty_count = 0;
 
-  $("select").each(function (i) {
-    if (this.value === "") {
-      empty_count += 1;
-      this.style.boxShadow = "0 0 5px 1px var(--submit-color-darker)";
-      this.onfocus = function () {
-        this.style.boxShadow = "none";
-      };
-    }
-  });
+//   $("select").each(function (i) {
+//     if (this.value === "") {
+//       empty_count += 1;
+//       this.style.boxShadow = "0 0 5px 1px var(--submit-color-darker)";
+//       this.onfocus = function () {
+//         this.style.boxShadow = "none";
+//       };
+//     }
+//   });
 
-  if (empty_count === 1) {
-    document.getElementById("survey_info").innerHTML =
-      "There is only one more thing you need to fill out";
-    return;
-  } else if (empty_count > 1) {
-    document.getElementById("survey_info").innerHTML =
-      "There are " +
-      empty_count.toString() +
-      " more things you need to fill out.";
-    return;
-  }
+//   if (empty_count === 1) {
+//     document.getElementById("survey_info").innerHTML =
+//       "There is only one more thing you need to fill out";
+//     return;
+//   } else if (empty_count > 1) {
+//     document.getElementById("survey_info").innerHTML =
+//       "There are " +
+//       empty_count.toString() +
+//       " more things you need to fill out.";
+//     return;
+//   }
 
-  user.age = document.getElementById("age").value;
-  user.gender = document.getElementById("gender").value;
-  user.current_country = document.getElementById("current_country").value;
-  user.main_country = document.getElementById("main_country").value;
-  user.main_hand = document.getElementById("handedness").value;
-  user.education_level = document.getElementById("education_level").value;
-  user.eye_sight = document.getElementById("vision").value;
-  user.performance = document.getElementById("performance").value;
-  user.comment = document.getElementById("comment").value;
+//   user.age = document.getElementById("age").value;
+//   user.gender = document.getElementById("gender").value;
+//   user.current_country = document.getElementById("current_country").value;
+//   user.main_country = document.getElementById("main_country").value;
+//   user.main_hand = document.getElementById("handedness").value;
+//   user.education_level = document.getElementById("education_level").value;
+//   user.eye_sight = document.getElementById("vision").value;
+//   user.performance = document.getElementById("performance").value;
+//   user.comment = document.getElementById("comment").value;
 
-  if (user.comment === "") {
-    user.comment = "none";
-  }
+//   if (user.comment === "") {
+//     user.comment = "none";
+//   }
 
-  var params = {
-    TableName: USER_TABLE_NAME,
-    Item: {
-      gazer_id: gazer_id,
-      time_collected: session_time,
-      info: user
-    }
-  };
+//   var params = {
+//     TableName: USER_TABLE_NAME,
+//     Item: {
+//       gazer_id: gazer_id,
+//       time_collected: session_time,
+//       info: user
+//     }
+//   };
 
-  // toggle_stylesheets();
-  docClient.put(params, function (err, data) {
-    if (err) {
-      console.log(
-        "Unable to add item: " + "\n" + JSON.stringify(err, undefined, 2)
-      );
-    } else {
-      // console.log(
-      //   "PutItem succeeded: " + "\n" + JSON.stringify(data, undefined, 2)
-      // );
-    }
-    callback();
-  });
-}
+//   // toggle_stylesheets();
+//   docClient.put(params, function (err, data) {
+//     if (err) {
+//       console.log(
+//         "Unable to add item: " + "\n" + JSON.stringify(err, undefined, 2)
+//       );
+//     } else {
+//       // console.log(
+//       //   "PutItem succeeded: " + "\n" + JSON.stringify(data, undefined, 2)
+//       // );
+//     }
+//     callback();
+//   });
+// }
 
 /*********************************************
  * Functions that draw on the HTML5 canvas.
