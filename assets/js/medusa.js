@@ -47,8 +47,15 @@ var num_objects_shown = 0; //number of objects shown
 var paradigm = "static"; // the paradigm to use for the test
 var possible_paradigm = ["static", "pursuit", "heatmap", "massvis"];
 var screen_timeout = 3000;
-var cam_width = 320;
-var cam_height = 240;
+
+// Dimensions of the onscreen webcam feed
+var cam_width;
+var cam_height;
+$( document ).ready(function() {
+  cam_width = Math.round($("#main").innerWidth() * 0.45);
+  cam_height = cam_width * 0.5625; // height-to-width ratio of 1280x720p
+});
+
 var heatmap_data_x = [];
 var heatmap_data_y = [];
 var heatmap_image_data;
