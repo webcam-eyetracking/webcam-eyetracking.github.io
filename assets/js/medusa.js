@@ -186,12 +186,13 @@ function initiate_webgazer() {
       if (curr_object === undefined || curr_object === null) return;
       if (collect_data === false) return;
 
+      var collect_sample = elapsedTime - webgazer_time_stamp > 1000 / SAMPLING_RATE;
+
       // add calibration point to model
-      if (elapsedTime - webgazer_time_stamp > 1000 / SAMPLING_RATE &&
-          current_task === "calibration") {
+      if (collect_sample && current_task === "calibration") {
         webgazer.recordScreenPosition(curr_object.cx, curr_object.cy);
       }
-
+      
       curr_index++; // increment the counter for entries
 
       // Collect data from webgazer
@@ -201,8 +202,6 @@ function initiate_webgazer() {
       if (current_task === "pursuit") {
         store_data.object_x[curr_index] = curr_object.cx;
         store_data.object_y[curr_index] = curr_object.cy;
-      } else if (current_task === "bonus") {
-        loop_bonus_round();
       } else {
         // Grab the most up-to-date coordinates if they're available (non-static tasks)
         if (!curr_object.cx) {
