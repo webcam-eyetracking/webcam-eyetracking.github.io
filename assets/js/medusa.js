@@ -426,7 +426,7 @@ function create_webcam_instruction_perfect() {
   guide.style.top = "65%";
   guide.style.left = "calc(50% - 400px)";
   guide.style.zIndex = 13;
-  guide.width = cam_width;
+  guide.height = cam_height;
   document.body.appendChild(guide);
   var video = document.getElementById("webgazerVideoFeed");
   video.style.left = "calc(50% + 25px)";
@@ -449,7 +449,7 @@ function create_webcam_instruction_broken() {
   guide.style.top = "65%";
   guide.style.left = "calc(50% - 400px)";
   guide.style.zIndex = 13;
-  guide.width = cam_width;
+  guide.height = cam_height;
   document.body.appendChild(guide);
   var video = document.getElementById("webgazerVideoFeed");
   video.style.left = "calc(50% + 25px)";
@@ -472,7 +472,7 @@ function create_webcam_instruction_glasses() {
   guide.style.top = "65%";
   guide.style.left = "calc(50% - 400px)";
   guide.style.zIndex = 13;
-  guide.width = cam_width;
+  guide.height = cam_height;
   document.body.appendChild(guide);
   var video = document.getElementById("webgazerVideoFeed");
   video.style.left = "calc(50% + 25px)";
@@ -501,7 +501,7 @@ function create_webcam_instruction_uneven() {
   guide.style.top = "65%";
   guide.style.left = "calc(50% - 400px)";
   guide.style.zIndex = 13;
-  guide.width = cam_width;
+  guide.height = cam_height;
   document.body.appendChild(guide);
   var video = document.getElementById("webgazerVideoFeed");
   video.style.left = "calc(50% + 25px)";
@@ -524,7 +524,7 @@ function create_webcam_instruction_bookstack() {
   guide.style.top = "65%";
   guide.style.left = "calc(50% - 400px)";
   guide.style.zIndex = 13;
-  guide.width = cam_width;
+  guide.height = cam_height;
   document.body.appendChild(guide);
   var video = document.getElementById("webgazerVideoFeed");
   video.style.left = "calc(50% + 25px)";
@@ -547,7 +547,7 @@ function create_webcam_instruction_reset() {
   guide.style.top = "65%";
   guide.style.left = "calc(50% - 400px)";
   guide.style.zIndex = 13;
-  guide.width = cam_width;
+  guide.height = cam_height;
   document.body.appendChild(guide);
   var video = document.getElementById("webgazerVideoFeed");
   video.style.left = "calc(50% + 25px)";
@@ -572,7 +572,7 @@ function create_webcam_instruction_final_check() {
   guide.style.top = "65%";
   guide.style.left = "calc(50% - 400px)";
   guide.style.zIndex = 13;
-  guide.width = cam_width;
+  guide.height = cam_height;
   document.body.appendChild(guide);
   var video = document.getElementById("webgazerVideoFeed");
   video.style.left = "calc(50% + 25px)";
