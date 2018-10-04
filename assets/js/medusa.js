@@ -908,6 +908,10 @@ function loop_pursuit_paradigm() {
   }
 
   curr_object = objects_array.pop();
+
+  // Use starting x/y coords for estimating distance to travel per frame
+  curr_object.orig_x = curr_object.x;
+  curr_object.orig_y = curr_object.y;
   
   var dot = {
     x: curr_object.x,

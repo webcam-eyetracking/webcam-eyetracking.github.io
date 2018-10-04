@@ -534,7 +534,7 @@ function draw_moving_dot(context, dot) {
   );
 
   var dist_per_frame =
-    distance(curr_object.x, curr_object.y, curr_object.tx, curr_object.ty) /
+    distance(curr_object.orig_x, curr_object.orig_y, curr_object.tx, curr_object.ty) /
     pursuit_paradigm_settings.dot_show_time *
     dt;
 
