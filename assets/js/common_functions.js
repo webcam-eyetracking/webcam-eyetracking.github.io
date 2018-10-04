@@ -540,12 +540,12 @@ function draw_moving_dot(context, dot) {
 
   var x_dist_per_frame = Math.cos(angle) * dist_per_frame;
   var y_dist_per_frame = Math.sin(angle) * dist_per_frame;
-  curr_object.cx = curr_object.cx + x_dist_per_frame;
-  curr_object.cy = curr_object.cy + y_dist_per_frame;
+  curr_object.x += x_dist_per_frame;
+  curr_object.y += y_dist_per_frame;
 
   dot = {
-    x: curr_object.cx,
-    y: curr_object.cy,
+    x: curr_object.x,
+    y: curr_object.y,
     r: DEFAULT_DOT_RADIUS
   };
 

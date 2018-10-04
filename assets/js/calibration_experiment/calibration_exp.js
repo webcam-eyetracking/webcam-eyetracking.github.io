@@ -150,8 +150,6 @@ function check_calibration_finished() {
       }
     }
     curr_object = objects_array.pop();
-    curr_object.cx = curr_object.x;
-    curr_object.cy = curr_object.y;
   }
   else {
     console.error("Invalid stimulus type.");
@@ -176,12 +174,12 @@ function collect_training_data() {
   } 
   else if (interaction == "watch") {
     // send_gaze_data_to_database();
-    webgazer.recordScreenPosition(curr_object.cx, curr_object.cy);
+    webgazer.recordScreenPosition(curr_object.x, curr_object.y);
     time_stamp = new Date().getTime();
   }
   else if (interaction == "placebo") {
     // send_gaze_data_to_database();
-    webgazer.recordScreenPosition(curr_object.cx, curr_object.cy);
+    webgazer.recordScreenPosition(curr_object.x, curr_object.y);
     time_stamp = new Date().getTime();
 
     // Clicks aren't recorded as data, but still register to advance the experiment

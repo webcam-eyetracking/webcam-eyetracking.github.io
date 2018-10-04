@@ -197,7 +197,7 @@ function initiate_webgazer() {
 
       // add calibration point to model
       if (collect_sample && current_task === "calibration") {
-        webgazer.recordScreenPosition(curr_object.cx, curr_object.cy);
+        webgazer.recordScreenPosition(curr_object.x, curr_object.y);
       }
       
       curr_index++; // increment the counter for entries
@@ -205,22 +205,10 @@ function initiate_webgazer() {
       // Collect data from webgazer
       webgazer_time_stamp = elapsedTime;
       store_data.elapsedTime[curr_index] = elapsedTime;
-  
-      if (current_task === "pursuit") {
-        store_data.object_x[curr_index] = curr_object.cx;
-        store_data.object_y[curr_index] = curr_object.cy;
-      } else {
-        // Grab the most up-to-date coordinates if they're available (non-static tasks)
-        if (!curr_object.cx) {
-          store_data.object_x[curr_index] = curr_object.x;
-          store_data.object_y[curr_index] = curr_object.y;
-        }
-        else {
-          store_data.object_x[curr_index] = curr_object.cx;
-          store_data.object_y[curr_index] = curr_object.cy;
-        }
-      }
+      store_data.object_x[curr_index] = curr_object.x;
+      store_data.object_y[curr_index] = curr_object.y;
       store_data.gaze_x[curr_index] = data.x;
+      // console.log(curr_object.x)
       store_data.gaze_y[curr_index] = data.y;
     });
 
@@ -920,12 +908,10 @@ function loop_pursuit_paradigm() {
   }
 
   curr_object = objects_array.pop();
-  curr_object.cx = curr_object.x;
-  curr_object.cy = curr_object.y;
   
   var dot = {
-    x: curr_object.cx,
-    y: curr_object.cy,
+    x: curr_object.x,
+    y: curr_object.y,
     r: DEFAULT_DOT_RADIUS
   };
 

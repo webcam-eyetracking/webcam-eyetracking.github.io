@@ -99,8 +99,8 @@ function finish_static_trial() {
  ******************************************************************************/
 
 /**
- * Draw a moving dot. Used for calibration when the 'pursuit' stimulus 
- * is in effect.
+ * Begins the process to draw a new moving dot. Used for calibration when 
+ * the 'pursuit' stimulus is in effect.
  * @param {*} context - The 2D rendering context for the HTML5 canvas
  */
 function draw_pursuit_dot_calibration(context) {
@@ -109,9 +109,13 @@ function draw_pursuit_dot_calibration(context) {
     return;
   }
 
+  // Use starting x/y coords for estimating distance to travel per frame
+  curr_object.orig_x = curr_object.x;
+  curr_object.orig_y = curr_object.y;
+
   var dot = {
-    x: curr_object.cx,
-    y: curr_object.cy,
+    x: curr_object.x,
+    y: curr_object.y,
     r: DEFAULT_DOT_RADIUS
   };
 
@@ -137,25 +141,26 @@ function draw_pursuit_dot_calibration(context) {
 function draw_new_moving_dot() {
   var now = new Date().getTime(),
     dt = now - (time_stamp || now);
+
   time_stamp = now;
+
   var angle = Math.atan2(
     curr_object.ty - curr_object.y,
     curr_object.tx - curr_object.x
   );
 
-  var dist_per_frame =
-    distance(curr_object.x, curr_object.y, curr_object.tx, curr_object.ty) /
+  var dist_per_frame = distance(curr_object.orig_x, curr_object.orig_y, curr_object.tx, curr_object.ty) /
     pursuit_paradigm_settings.dot_show_time *
     dt;
 
   var x_dist_per_frame = Math.cos(angle) * dist_per_frame;
   var y_dist_per_frame = Math.sin(angle) * dist_per_frame;
-  curr_object.cx = curr_object.cx + x_dist_per_frame;
-  curr_object.cy = curr_object.cy + y_dist_per_frame;
+  curr_object.x += x_dist_per_frame;
+  curr_object.y += y_dist_per_frame;
 
   var dot = {
-    x: curr_object.cx,
-    y: curr_object.cy,
+    x: curr_object.x,
+    y: curr_object.y,
     r: DEFAULT_DOT_RADIUS
   };
 
@@ -225,8 +230,8 @@ function finish_pursuit_round() {
  * the dot is out of bounds and should move to its next location.
  */
 function validate_pursuit_loc() {
-  var x = curr_object.cx;
-  var y = curr_object.cy;
+  var x = curr_object.x;
+  var y = curr_object.y;
 
   return (
     x >= LEFT_EDGE_POS * $(window).width() && 
