@@ -550,6 +550,8 @@ function draw_moving_dot(context, dot) {
   };
 
   if (!validate_pursuit_loc()) {
+    curr_object.orig_x = curr_object.x;
+    curr_object.orig_y = curr_object.y;
     loop_pursuit_paradigm(); // Dot will begin moving to a new location
   } 
   else {

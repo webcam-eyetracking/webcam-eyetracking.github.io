@@ -165,6 +165,8 @@ function draw_new_moving_dot() {
   };
 
   if (!validate_pursuit_loc()) {
+    curr_object.orig_x = curr_object.x;
+    curr_object.orig_y = curr_object.y;
     start_calibration_task(); // Dot will begin moving to a new location
   } 
   else {
