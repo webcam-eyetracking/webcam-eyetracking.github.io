@@ -40,7 +40,7 @@ var FONT_FAMILY = "20px Source Sans Pro";
 var calibration_settings = {
   dot_show_time: 2500, // duration of a single position sampled
   num_rounds: 1, // the number of calibration rounds
-  num_trials: 1, // the number of dots used for calibration
+  num_trials: 14, // the number of dots used for calibration
   distance: 200, // radius of acceptable gaze data around calibration dot
   max_num_clicks: 5, // number of clicks during manual calibration mode
   position_array: [ // array of positions
@@ -81,7 +81,7 @@ var simple_paradigm_settings = {
     [CENTER_POS * 1.5, CENTER_POS * 1.5],
     [CENTER_POS, CENTER_POS]
   ],
-  num_trials: 1,
+  num_trials: 14,
   fixation_rest_time: 1500, // amount of time crosshair will appear on screen with each trial, in ms
   dot_show_time: 2500 // amount of time dot will appear on screen with each trial, in ms
 };
