@@ -10945,6 +10945,23 @@ function store_points(x, y, k) {
         return webgazer;
     };
 
+    
+    /**
+    * save webgazer data
+    */
+      webgazer.getTrainingData = function(){
+         storage = regs[0].getData() || data
+          return (storage);
+      }
+
+    webgazer.loadTrainingData = function(storage){
+      storage = (jQuery.isEmptyObject(storage)) ? defaults : storage;
+      for (var reg in regs) {
+          regs[reg].setData(storage);
+      }
+      return webgazer;
+    }
+
     /**
     * Stops the video camera from streaming and removes the video outlines
     * @return {webgazer} this
