@@ -215,7 +215,7 @@ function initiate_webgazer() {
     // Allow Webgazer 1 second to initialize to avoid 'no stream' errors
     setTimeout(function() {
       webgazer
-        .begin()
+        .begin(load_webgazer)
         .showPredictionPoints(false);
     }, 1000);
     

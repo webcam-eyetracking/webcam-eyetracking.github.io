@@ -10421,8 +10421,8 @@ function store_points(x, y, k) {
     webgazer.params.camConstraints = webgazer.params.camConstraints || 
         { video: 
             {   // Increase these dimensions to use maximum resolution as permits
-                width: { ideal: 1280 }, 
-                height: { ideal: 720 } 
+                width: { min: 1280 }, 
+                height: { min: 720 } 
             } 
         };
 
@@ -10791,7 +10791,6 @@ function store_points(x, y, k) {
         videoElement = document.createElement('video');
         videoElement.id = webgazer.params.videoElementId;
         videoElement.autoplay = true;
-        console.log(videoElement);
         videoElement.style.display = 'none';
 
         // set the video source as the stream
